@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🚀 Frontend Architecture
 
-## Getting Started
+Este repositório segue uma arquitetura organizada para um projeto Next.js, separando páginas, módulos e componentes globais.
 
-First, run the development server:
+📂 Estrutura
 
-```bash
+/src
+  ├── app/              # SSR - Páginas e layouts principais
+  │   ├── quem-somos/   # Página específica
+  │   ├── respostas-sociais/
+  │   ├── favicon.ico
+  │   ├── globals.css   # Estilos globais
+  │   ├── layout.tsx    # Layout base da aplicação
+  │   └── page.tsx      # Página principal
+  │
+  ├── components/       # Componentes globais estilizados com Tailwind CSS
+  │   ├── Button.tsx
+  │   ├── Header.tsx
+  │   ├── Footer.tsx
+  │   └── ...
+  │
+  ├── modules/          # Funcionalidades construídas no client-side
+      ├── auth/
+      ├── dashboard/
+      ├── ...
+
+
+
+⸻
+
+🏗️ Como essa arquitetura funciona?
+
+📌 App (SSR - Server-Side Rendering)
+
+A pasta app/ contém todas as páginas e layouts principais do projeto. Ela usa SSR (Server-Side Rendering) para melhor performance e SEO.
+	•	O layout.tsx define a estrutura global das páginas.
+	•	O globals.css contém os estilos globais.
+	•	Cada subpasta representa uma página com seus arquivos .tsx.
+
+📌 Components (Globais & Estilizados com Tailwind CSS)
+
+A pasta components/ contém componentes reutilizáveis, como botões, headers e footers.
+	•	Todos os componentes são estilizados com Tailwind CSS.
+	•	Eles são utilizados dentro dos módulos e páginas para manter a consistência visual.
+
+📌 Modules (Client-Side Components)
+
+A pasta modules/ contém funcionalidades específicas que rodam no client-side.
+	•	Cada módulo pode ter suas próprias subpastas e componentes internos.
+	•	Os módulos puxam componentes globais e podem ser usados dentro das páginas do app/.
+
+⸻
+
+🛠️ Como rodar o projeto?
+	1.	Clone o repositório:
+
+git clone https://github.com/seu-usuario/seu-repositorio.git
+cd seu-repositorio
+
+
+	2.	Instale as dependências:
+
+npm install
+# ou
+yarn install
+
+
+	3.	Inicie o servidor de desenvolvimento:
+
 npm run dev
-# or
+# ou
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+	4.	Acesse http://localhost:3000 no navegador.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+⸻
 
-## Learn More
+🎨 Estilização
+	•	O projeto usa Tailwind CSS para estilização rápida e eficiente.
+	•	Os estilos globais estão em globals.css, mas cada componente pode ter classes do Tailwind aplicadas diretamente.
 
-To learn more about Next.js, take a look at the following resources:
+⸻
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+📌 Boas práticas
+	•	Mantenha os componentes reutilizáveis na pasta components/.
+	•	Use SSR apenas onde necessário (app/), e client-side rendering nos módulos (modules/).
+	•	Mantenha a estilização consistente com Tailwind CSS.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+⸻
