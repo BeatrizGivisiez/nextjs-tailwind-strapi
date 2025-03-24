@@ -9,10 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource/inter": "^5.2.5",
+    "@fontsource/poppins": "^5.2.5",
     "@phosphor-icons/react": "^2.1.7",
     "next": "15.2.3",
+    "phosphor-react": "^1.4.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "swiper": "^11.2.6"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
