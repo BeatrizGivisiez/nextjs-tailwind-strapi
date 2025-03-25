@@ -1,10 +1,11 @@
 @import "@fontsource/inter";
+@import "@fontsource/inter/800.css";
 @import "@fontsource/poppins";
+@import "@fontsource/poppins/800.css";
 @import "tailwindcss";
 @plugin "daisyui";
-
 @plugin "daisyui/theme" {
-  name: "light";
+  name: "CedemaTheme";
   default: false;
   prefersdark: false;
   color-scheme: "light";
@@ -38,8 +39,21 @@
   --noise: 1;
 }
 
+
 :root {
   --color-brand: #004d66;
+}
+
+.font-header {
+  font-family: "Inter", sans-serif;
+}
+
+.font-body {
+  font-family: "Poppins", sans-serif;
+}
+
+.custom-container {
+  @apply container mx-auto;
 }
 
 body {
@@ -52,5 +66,10 @@ h3,
 h4,
 h5,
 h6 {
+  text-transform: uppercase;
+}
+
+button {
   font-family: "Inter", sans-serif;
+  text-transform: uppercase;
 }
