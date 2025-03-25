@@ -51,6 +51,10 @@
   @apply container mx-auto;
 }
 
+:root {
+  --color-brand: #004d66;
+}
+
 body {
   font-family: "Poppins", sans-serif;
 }
