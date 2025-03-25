@@ -3,6 +3,7 @@
 @import "@fontsource/poppins";
 @import "@fontsource/poppins/800.css";
 @import "tailwindcss";
+
 @plugin "daisyui";
 @plugin "daisyui/theme" {
   name: "CedemaTheme";
@@ -66,6 +67,26 @@ h4,
 h5,
 h6 {
   text-transform: uppercase;
+}
+
+.heading-8xl {
+  @apply text-5xl md:text-8xl;
+}
+
+.heading-5xl {
+  @apply text-2xl md:text-5xl;
+}
+
+.heading-6xl {
+  @apply text-3xl md:text-6xl;
+}
+
+.body-2xl {
+  @apply text-base md:text-2xl;
+}
+
+.heading-xl {
+  @apply text-sm md:text-xl;
 }
 
 button {

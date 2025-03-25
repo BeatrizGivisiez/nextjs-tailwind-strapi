@@ -12,6 +12,7 @@
     "@fontsource/inter": "^5.2.5",
     "@fontsource/poppins": "^5.2.5",
     "@phosphor-icons/react": "^2.1.7",
+    "@react-google-maps/api": "^2.20.6",
     "framer-motion": "^12.5.0",
     "next": "15.2.3",
     "phosphor-react": "^1.4.1",
