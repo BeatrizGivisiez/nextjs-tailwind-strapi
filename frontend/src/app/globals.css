@@ -40,6 +40,10 @@
   --noise: 1;
 }
 
+:root {
+  --color-brand: #004d66;
+}
+
 .font-header {
   font-family: "Inter", sans-serif;
 }
