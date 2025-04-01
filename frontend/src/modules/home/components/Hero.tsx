@@ -13,16 +13,14 @@ export const Hero = () => {
       <section className="relative hero text-white h-full">
         <div className="absolute inset-0 bg-[url('@/assets/HeroBG.jpg')] bg-cover bg-center brightness-[0.4]" />
 
-        <div className="z-10 custom-container text-left">
-          <h1 className="text-2xl md:text-5xl font-extrabold leading-tight">
+        <div className="z-[1] custom-container text-left">
+          <h1 className="heading-5xl font-extrabold leading-tight">
             <span className="block">SABEMOS QUE</span>
-            <span className="block text-5xl md:text-8xl">
-              MELHOR QUE SORRIR
-            </span>
+            <span className="block heading-8xl">MELHOR QUE SORRIR</span>
             <span className="block">É SORRIREM CONNOSCO</span>
           </h1>
 
-          <h2 className="mt-6 font-bold text-sm md:text-xl mx-auto">
+          <h2 className="mt-6 font-bold heading-xl mx-auto">
             Ajude-nos a transformar vidas através do voluntariado e apoio
             solidário
           </h2>
