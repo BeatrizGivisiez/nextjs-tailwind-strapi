@@ -49,7 +49,7 @@
 }
 
 .custom-container {
-  @apply container mx-auto;
+  @apply mx-auto w-[90%];
 }
 
 body {

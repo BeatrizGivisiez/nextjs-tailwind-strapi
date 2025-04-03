@@ -1,7 +1,6 @@
 import Image from "next/image";
 import CustomButton from "@/components/Buttons/CustomButton";
 import { HandCoins } from "@phosphor-icons/react";
-
 import cmOdivelas from "@/assets/cmOdivelas.png";
 import iefp from "@/assets/iefp.png";
 import gnr from "@/assets/gnr.png";
@@ -9,11 +8,9 @@ import { CaretDoubleDown } from "phosphor-react";
 
 export const Hero = () => {
   return (
-    <div className="min-h-screen">
-      <section className="relative hero text-white h-full">
-        <div className="absolute inset-0 bg-[url('@/assets/HeroBG.jpg')] bg-cover bg-center brightness-[0.4]" />
-
-        <div className="z-[1] custom-container text-left">
+    <div className="flex flex-col min-h-[100vh] justify-center bg-[url('@/assets/HeroBG.jpg')] bg-cover bg-center">
+      <section className="relative flex-grow flex items-center justify-center text-white bg-black/40 pt-[80px]">
+        <div className="custom-container z-[1] text-left">
           <h1 className="heading-5xl font-extrabold leading-tight">
             <span className="block">SABEMOS QUE</span>
             <span className="block heading-8xl">MELHOR QUE SORRIR</span>
@@ -25,7 +22,7 @@ export const Hero = () => {
             solidário
           </h2>
 
-          <div className="mt-8 flex gap-4 flex-wrap">
+          <div className="mt-8 flex gap-4 flex-wrap justify-center md:justify-start">
             <CustomButton
               color="primary"
               label="Apoie Agora"

@@ -1,17 +1,16 @@
 import { YoutubeLogo } from "phosphor-react";
 import image1 from "@/assets/HeroBG.jpg";
 import Image from "next/image";
-import MyGoogleMap from "@/components/Map/Map";
 import CustomButton from "@/components/Buttons/CustomButton";
 
 export const Intro = () => {
   return (
     <div className="min-h-screen">
-      <section className=" h-full custom-container py-24">
+      <section className="custom-container h-full py-24">
         <div className="grid grid-cols-12">
           <div className="col-span-full md:col-span-7">
             <p className="body-2xl">
-              <span className="heading-8xl font-header uppercase text-primary font-extrabold">
+              <span className="heading-8xl font-header text-primary font-extrabold uppercase">
                 CEDEMA
               </span>
               <span className="text-neutral ml-0.5">
@@ -26,36 +25,36 @@ export const Intro = () => {
             </p>
           </div>
           <div className="col-span-full md:col-span-5">
-            <div className="mt-3 md:mt-0 grid grid-cols-4 md:grid-cols-2 gap-3">
+            <div className="mt-3 grid grid-cols-2 gap-3 md:mt-0 md:grid-cols-2">
               <Image
                 src={image1}
                 alt=""
-                className="rounded-lg h-64 lg:h-auto object-cover"
+                className="h-64 rounded-lg object-cover lg:h-auto"
               />
               <Image
                 src={image1}
                 alt=""
-                className="rounded-lg h-64 lg:h-auto object-cover"
+                className="h-64 rounded-lg object-cover lg:h-auto"
               />
               <Image
                 src={image1}
                 alt=""
-                className="rounded-lg h-64 lg:h-auto object-cover"
+                className="h-64 rounded-lg object-cover lg:h-auto"
               />
               <Image
                 src={image1}
                 alt=""
-                className="rounded-lg h-64 lg:h-auto object-cover"
+                className="h-64 rounded-lg object-cover lg:h-auto"
               />
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-12 mt-16">
-          <div className="col-span-full md:col-span-7 md:order-2">
-            <h3 className="text-primary heading-6xl md:text-right font-extrabold">
+        <div className="mt-16 grid grid-cols-12">
+          <div className="col-span-full md:order-2 md:col-span-7">
+            <h3 className="text-primary heading-6xl font-extrabold md:text-right">
               ONDE ESTAMOS
             </h3>
-            <p className="body-2xl md:text-right m-2">
+            <p className="body-2xl m-2 md:text-right">
               <span className="text-neutral">
                 Localizados no municipio de Lisboa na freguesia da Ameixoeira,
                 temos como missão o alojamento, a reabilitação, a felicidade e a
@@ -67,9 +66,21 @@ export const Intro = () => {
               </span>
             </p>
           </div>
-          <div className="col-span-full md:col-span-5 md:order-1">
-            <MyGoogleMap />
-            <p className="text-neutral text-sm text-center mt-2">
+          <div className="col-span-full md:order-1 md:col-span-5">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2199.095159258481!2d-9.15975391724226!3d38.78685903820371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd19335b579b5107%3A0x1d5d8f072787d322!2sCEDEMA%20-%20Associa%C3%A7%C3%A3o%20de%20Pais%20e%20Amigos%20dos%20Deficientes%20Mentais%20Adultos!5e0!3m2!1sen!2spt!4v1743513651354!5m2!1sen!2spt&zoom=disable"
+              width="100%"
+              height="450"
+              style={{
+                border: 0,
+              }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Map"
+            />
+
+            <p className="text-neutral mt-2 text-center text-sm">
               Rua Varela Silva, Lote 8 – Loja A
             </p>
           </div>
@@ -78,17 +89,17 @@ export const Intro = () => {
           <h3 className="text-primary heading-6xl font-extrabold">
             conheça o nosso trabalho
           </h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mt-8">
+          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
             {Array.from({ length: 5 }, (_, i) => {
               return (
                 <div className="relative" key={i}>
                   <Image
                     src={image1}
                     alt=""
-                    className="object-cover rounded-lg"
+                    className="rounded-lg object-cover"
                   />
-                  <div className="absolute left-0 top-0 w-full h-full  z-[1]">
-                    <div className="flex items-center justify-center h-full">
+                  <div className="absolute top-0 left-0 z-[1] h-full w-full">
+                    <div className="flex h-full items-center justify-center">
                       <YoutubeLogo
                         weight="fill"
                         color="var(--color-error)"
@@ -100,7 +111,7 @@ export const Intro = () => {
               );
             })}
           </div>
-          <div className="flex justify-end mt-4">
+          <div className="mt-4 flex justify-end">
             <CustomButton
               color="primary"
               icon={<YoutubeLogo size={32} />}
