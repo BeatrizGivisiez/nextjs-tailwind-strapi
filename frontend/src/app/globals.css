@@ -16,6 +16,7 @@
   --color-base-content: oklch(21% 0.006 56.043);
   --color-primary: #00465c;
   --color-primary-content: "#e2f3f9";
+  --color-primary-disabled: "#004d6666";
   --color-secondary: #006d91;
   --color-secondary-content: oklch(97% 0.017 320.058);
   --color-accent: oklch(63% 0.237 25.331);
@@ -63,6 +64,7 @@ h4,
 h5,
 h6 {
   text-transform: uppercase;
+  font-family: "Inter", sans-serif;
 }
 
 .heading-8xl {

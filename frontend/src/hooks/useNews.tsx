@@ -8,7 +8,7 @@ export interface NewsArticle {
   slug: string;
   Conteudo: string;
   publicadoEm: string;
-  Imagens?: {
+  Imagens: {
     url: string;
     alternativeText?: string;
     caption?: string;
