@@ -63,7 +63,7 @@ export async function GET() {
       endpoint,
       NEWS_QUERY,
       {},
-      headers
+      headers,
     );
 
     const articles = data.news.map((item) => ({
@@ -72,6 +72,8 @@ export async function GET() {
 
     return NextResponse.json(articles);
   } catch (err) {
+    console.error("Error fetching news:", err);
+    console.log("endpoint", endpoint);
     return NextResponse.json(
       { error: "Failed to fetch news" },
       { status: 500 }

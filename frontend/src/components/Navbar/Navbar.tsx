@@ -5,6 +5,7 @@ import { NavbarProps } from "./types";
 import AnimatedNavbar from "./AnimatedNavbar";
 import StaticNavbar from "./StaticNavbar";
 import NavbarMenu from "./NavbarMenu";
+import Breadcrumb from "../Breadcrumb/Breadcrumb";
 
 export const Navbar = ({ children }: NavbarProps) => {
   const pathname = usePathname();
@@ -17,7 +18,6 @@ export const Navbar = ({ children }: NavbarProps) => {
         {isHome ? <AnimatedNavbar /> : <StaticNavbar />}
         {children}
       </div>
-
       <div className="drawer-side z-20">
         <label
           htmlFor="my-drawer-3"

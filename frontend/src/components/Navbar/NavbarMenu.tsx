@@ -4,7 +4,7 @@ import React from "react";
 
 const NavbarMenu: React.FC = () => {
   return (
-    <ul className="menu p-0 m-0 px-3 gap-2 text-xs font-bold uppercase text-primary lg:menu-horizontal">
+    <ul className="menu p-0 m-0 px-3 gap-2 text-xs font-bold font-header uppercase text-primary lg:menu-horizontal">
       <li>
         <Link href="/quem-somos">Quem Somos</Link>
       </li>
