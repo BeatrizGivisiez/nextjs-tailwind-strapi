@@ -8,12 +8,25 @@ import ItemList from "../components/ItemList";
 import Pagination from "../components/Pagination";
 import { NewsArticle } from "@/hooks/useNews";
 
-export const NoticiasPage: React.FC<{ items: NewsArticle[] }> = ({ items }) => {
+interface NoticiasPageProps {
+  items: NewsArticle[];
+  pageInfo: {
+    total: number;
+    page: number;
+    pageSize: number;
+    pageCount: number;
+  };
+  onPageChange: (newPage: number) => void;
+}
+
+export const NoticiasPage: React.FC<NoticiasPageProps> = ({
+  items,
+  pageInfo,
+  onPageChange,
+}) => {
   const [filteredItems, setFilteredItems] = useState<NewsArticle[]>(items);
   const [filter, setFilter] = useState<string>("");
   const [viewMode, setViewMode] = useState<string>("grid");
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const itemsPerPage = 10;
 
   // Debounced filter handler
   const debouncedFilter = debounce((filterText: string) => {
@@ -28,24 +41,12 @@ export const NoticiasPage: React.FC<{ items: NewsArticle[] }> = ({ items }) => {
     return () => debouncedFilter.cancel();
   }, [filter]);
 
-  // Pagination
-  const paginatedItems = filteredItems.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
-
-  const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
-
   const handleFilterChange = (event: ChangeEvent<HTMLInputElement>) => {
     setFilter(event.target.value);
   };
 
   const handleChangeView = (view: string) => {
     setViewMode(view);
-  };
-
-  const handlePageChange = (newPage: number) => {
-    setCurrentPage(newPage);
   };
 
   return (
@@ -60,13 +61,13 @@ export const NoticiasPage: React.FC<{ items: NewsArticle[] }> = ({ items }) => {
       />
 
       {/* Main Content */}
-      <ItemList items={paginatedItems} viewMode={viewMode} />
+      <ItemList items={filteredItems} viewMode={viewMode} />
 
       {/* Pagination Component */}
       <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
+        currentPage={pageInfo.page}
+        totalPages={pageInfo.pageCount}
+        onPageChange={onPageChange}
       />
     </div>
   );

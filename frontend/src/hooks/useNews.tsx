@@ -15,16 +15,29 @@ export interface NewsArticle {
   }[];
 }
 
-const fetchNews = async (): Promise<NewsArticle[]> => {
-  const res = await fetch("/api/news");
+interface PaginationMeta {
+  total: number;
+  page: number;
+  pageSize: number;
+  pageCount: number;
+}
+
+interface NewsData {
+  nodes: NewsArticle[];
+  pageInfo: { pagination: PaginationMeta };
+}
+
+const fetchNews = async (page: number = 1, pageSize: number = 20) => {
+  const res = await fetch(`/api/news?page=${page}&pageSize=${pageSize}`);
   if (!res.ok) throw new Error("Failed to fetch news");
-  return res.json();
+
+  return res.json() as Promise<{ news_connection: NewsData }>;
 };
 
-export const useNews = () => {
-  return useQuery<NewsArticle[], Error>({
-    queryKey: ["news"],
-    queryFn: fetchNews,
+export const useNews = (page: number, pageSize = 20) => {
+  return useQuery({
+    queryKey: ["news", page, pageSize],
+    queryFn: () => fetchNews(page, pageSize),
     staleTime: 1000 * 60 * 5,
   });
 };
