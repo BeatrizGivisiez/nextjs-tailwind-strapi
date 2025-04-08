@@ -1,5 +1,6 @@
 import { NewsArticle } from "@/hooks/useNews";
 import { formatDateInPortuguese } from "@/utils/dateHelpers";
+import Image from "next/image";
 
 interface Props {
   item: NewsArticle;
@@ -13,10 +14,13 @@ export const NoticiasItemListCard: React.FC<Props> = ({ item, viewMode }) => {
   return (
     <div className="card bg-base-100 w-full shadow-sm">
       <figure>
-        <img
+        <Image
           src={imageUrl}
-          alt="Test"
-          style={{ width: "100%", height: "auto" }}
+          alt={item.Imagens[0].alternativeText || ""}
+          width={800}
+          height={200}
+          layout="responsive"
+          unoptimized
         />
       </figure>
       <div className="card-body">

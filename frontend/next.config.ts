@@ -2,7 +2,7 @@
 
 const nextConfig = {
   images: {
-    domains: ["localhost"], // 👈 this allows images from http://localhost:1337
+    domains: ["localhost", "127.0.0.1"],
   },
 };
 
