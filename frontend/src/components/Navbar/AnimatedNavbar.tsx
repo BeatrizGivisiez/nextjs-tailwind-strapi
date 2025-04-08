@@ -1,11 +1,15 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import NavbarShell from "./NavbarShell";
 
 export default function AnimatedNavbar() {
   const [isAtTop, setIsAtTop] = useState(true);
+  const pathName = usePathname();
+  const isLandingPage = pathName === "/";
+  const isAtTopLandingPage = isAtTop && isLandingPage;
 
   useEffect(() => {
     const onScroll = () => setIsAtTop(window.scrollY === 0);
@@ -16,11 +20,11 @@ export default function AnimatedNavbar() {
 
   return (
     <motion.div
-      className="fixed z-[20] mt-[5vh] min-h-[40px] overflow-hidden"
+      className={`${isLandingPage ? "fixed" : ""} z-[20] ${isAtTopLandingPage ? "mt-[5vh]" : ""} min-h-[40px] px-6 lg:px-10 p-0 pb-0 navbar items-start justify-between lg:items-center bg-white overflow-hidden shadow-lg `}
       animate={{
-        width: isAtTop ? "70%" : "100%",
+        width: isAtTopLandingPage ? "70%" : "100%",
         opacity: 1,
-        maskImage: isAtTop
+        maskImage: isAtTopLandingPage
           ? "linear-gradient(to right, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)"
           : "linear-gradient(to right, rgba(0,0,0,1) 100%, rgba(0,0,0,1) 100%)",
       }}
@@ -32,7 +36,10 @@ export default function AnimatedNavbar() {
       }}
       transition={{ duration: 0.6, ease: "easeInOut" }}
     >
-      <NavbarShell isMobileHidden={isAtTop} isDesktopHidden={isAtTop} />
+      <NavbarShell
+        isMobileHidden={isAtTopLandingPage}
+        isDesktopHidden={isAtTopLandingPage}
+      />
     </motion.div>
   );
 }
