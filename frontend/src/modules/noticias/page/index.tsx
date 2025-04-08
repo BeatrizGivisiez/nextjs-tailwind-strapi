@@ -6,7 +6,7 @@ import { debounce } from "lodash";
 import Header from "../components/Header";
 import ItemList from "../components/ItemList";
 import Pagination from "../components/Pagination";
-import { NewsArticle } from "@/hooks/useNews";
+import { NewsArticle } from "@/hooks/News/useNews";
 
 interface NoticiasPageProps {
   items: NewsArticle[];

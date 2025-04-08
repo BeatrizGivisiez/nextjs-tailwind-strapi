@@ -1,0 +1,20 @@
+"use client";
+
+import { useNoticia } from "@/hooks/News/useSingleNew";
+import { use } from "react";
+
+interface NoticiaPageProps {
+  params: Promise<{
+    slug: string;
+  }>;
+}
+
+export default function Noticia({ params }: NoticiaPageProps) {
+  const resolvedParams = use(params);
+  const { slug } = resolvedParams;
+
+  // Fetch data for the slug
+  const { data: noticia, error, isLoading } = useNoticia(slug);
+
+  return <></>;
+}

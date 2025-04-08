@@ -1,5 +1,5 @@
 "use client";
-import { useNews } from "@/hooks/useNews";
+import { useNews } from "@/hooks/News/useNews";
 import LeadPageLayout from "@/layouts/LeadPageLayout";
 import { NoticiasPage } from "@/modules/noticias/page";
 import bannerNoticias from "@/assets/NoticiasBanner.jpg";
