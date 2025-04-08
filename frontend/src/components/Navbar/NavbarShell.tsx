@@ -1,3 +1,4 @@
+"use client";
 import NavbarLogo from "./NavbarLogo";
 import NavbarActions from "./NavbarActions";
 import NavbarMenu from "./NavbarMenu";
