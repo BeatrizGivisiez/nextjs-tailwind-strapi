@@ -80,6 +80,8 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json(data);
   } catch (err) {
+    console.error("Error fetching news:", err);
+    console.log("endpoint", endpoint);
     return NextResponse.json(
       { error: "Failed to fetch news" },
       { status: 500 }

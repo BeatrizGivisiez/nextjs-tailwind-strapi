@@ -9,6 +9,7 @@ interface Props {
 
 export const NoticiasItemListCard: React.FC<Props> = ({ item, viewMode }) => {
   const imageUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}${item.Imagens[0].url}`;
+  console.log("Image URL:", imageUrl); // Debugging line
 
   return (
     <div className="card bg-base-100 w-full shadow-sm">
@@ -19,6 +20,7 @@ export const NoticiasItemListCard: React.FC<Props> = ({ item, viewMode }) => {
           width={800}
           height={200}
           layout="responsive"
+          unoptimized
         />
       </figure>
       <div className="card-body">
