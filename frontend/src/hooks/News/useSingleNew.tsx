@@ -16,5 +16,6 @@ export const useNoticia = (slug: string) => {
     queryKey: ["noticia", slug],
     queryFn: () => fetchNoticiaData(slug),
     enabled: !!slug,
+    retry: false,
   });
 };

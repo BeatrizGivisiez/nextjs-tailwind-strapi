@@ -80,7 +80,7 @@ h6 {
 }
 
 .heading-3xl {
-@apply text-base md:text-lg font-medium;
+  @apply text-base md:text-lg font-medium;
 }
 
 .heading-6xl {
@@ -93,6 +93,10 @@ h6 {
 
 .heading-xl {
   @apply text-sm md:text-xl;
+}
+
+.lineHeight-2rem {
+  @apply leading-6 md:leading-8;
 }
 
 button {

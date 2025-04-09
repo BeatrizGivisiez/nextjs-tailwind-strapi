@@ -17,12 +17,6 @@ const NEW_QUERY = gql`
           caption
         }
       }
-      pageInfo {
-        total
-        page
-        pageSize
-        pageCount
-      }
     }
   }
 `;
@@ -34,14 +28,14 @@ export async function GET(
   const { slug } = params;
 
   try {
-    const data = await request(
+    const data: any = await request(
       GRAPHQL_ENDPOINT,
       NEW_QUERY,
       { slug },
       GRAPHQL_HEADERS
     );
 
-    return NextResponse.json(data);
+    return NextResponse.json(data.news_connection?.nodes[0]);
   } catch (error) {
     return NextResponse.error();
   }

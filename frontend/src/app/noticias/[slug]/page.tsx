@@ -1,6 +1,7 @@
 "use client";
 
 import { useNoticia } from "@/hooks/News/useSingleNew";
+import { NoticiaPage } from "@/modules/noticia/page";
 import { use } from "react";
 
 interface NoticiaPageProps {
@@ -13,8 +14,9 @@ export default function Noticia({ params }: NoticiaPageProps) {
   const resolvedParams = use(params);
   const { slug } = resolvedParams;
 
-  // Fetch data for the slug
   const { data: noticia, error, isLoading } = useNoticia(slug);
 
-  return <></>;
+  if (isLoading) return <p>Loading...</p>; // meter skeleton
+
+  return <NoticiaPage item={noticia} />;
 }
