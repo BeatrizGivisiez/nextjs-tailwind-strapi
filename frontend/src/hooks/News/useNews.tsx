@@ -39,5 +39,6 @@ export const useNews = (page: number, pageSize = 20) => {
     queryKey: ["news", page, pageSize],
     queryFn: () => fetchNews(page, pageSize),
     staleTime: 1000 * 60 * 5,
+    retry: false,
   });
 };

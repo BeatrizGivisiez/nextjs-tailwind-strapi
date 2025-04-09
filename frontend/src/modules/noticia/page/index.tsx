@@ -1,25 +1,38 @@
 import CustomButton from "@/components/Buttons/CustomButton";
 import RichTextRenderer from "@/components/RichTextRenderer/RichTextRenderer";
 import { NewsArticle } from "@/hooks/News/useNews";
+import { NoticiasItemLastNewCard } from "@/modules/noticias/components/Items/LastNewCard";
 import { formatDateInPortuguese } from "@/utils/dateHelpers";
 import { ShareNetwork } from "@phosphor-icons/react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
+
+const NoticiaImageCarousel = dynamic(
+  () => import("../components/ImageCarousel"),
+  {
+    ssr: false,
+  }
+);
 
 interface NoticiasPageProps {
   item: NewsArticle;
+  lastNews: NewsArticle[];
 }
 
-export const NoticiaPage: React.FC<NoticiasPageProps> = ({ item }) => {
+export const NoticiaPage: React.FC<NoticiasPageProps> = ({
+  item,
+  lastNews,
+}) => {
   return (
     <>
       <div className="custom-container mt-12">
-        <div className="grid grid-cols-12">
-          <div className="col-span-12 md:col-span-8 flex flex-col gap-4">
+        <div className="grid grid-cols-6 gap-16">
+          <div className="col-span-full lg:col-span-4 flex flex-col gap-4">
             <h1 className="text-primary heading-4xl font-extrabold">
               {item.Titulo}
             </h1>
             <p className="text-justify lineHeight-2rem">{item.SubTitulo}</p>
-            <div className="flex justify-between items-center">
+            <div className="flex gap-4 justify-between items-center">
               <p className="text-neutral font-medium">
                 {formatDateInPortuguese(item.publicadoEm)}
               </p>
@@ -29,7 +42,9 @@ export const NoticiaPage: React.FC<NoticiasPageProps> = ({ item }) => {
               </button>
             </div>
             {item.Imagens.length > 1 ? (
-              <></> // adicionar carrosel se mais que uma imagem
+              <div className="">
+                <NoticiaImageCarousel images={item.Imagens} />
+              </div>
             ) : (
               <div>
                 <Image
@@ -43,6 +58,21 @@ export const NoticiaPage: React.FC<NoticiasPageProps> = ({ item }) => {
               </div>
             )}
             <RichTextRenderer content={item.Conteudo} />
+          </div>
+          <div className="col-span-full lg:col-span-2 ">
+            <h4 className="heading-xl text-primary font-semibold">
+              Últimas Noticías
+            </h4>
+            <div className="grid gap-3 mt-4">
+              {lastNews?.map((newsItem) => {
+                return (
+                  <NoticiasItemLastNewCard
+                    key={newsItem.slug}
+                    item={newsItem}
+                  />
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

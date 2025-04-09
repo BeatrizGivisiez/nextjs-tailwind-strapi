@@ -39,7 +39,7 @@ export const ContactInfo = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-sm text-gray-800">
         {locations.map((loc, idx) => (
           <div key={idx} className="space-y-2">
-            <div className="flex items-start gap-2 text-primary heading-3xl uppercase leading-snug">
+            <div className="flex items-start gap-2 text-primary heading-lg uppercase leading-snug">
               <Buildings
                 size={16}
                 weight="bold"

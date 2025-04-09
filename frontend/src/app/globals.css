@@ -1,6 +1,10 @@
 @import "@fontsource/inter";
 @import "@fontsource/inter/800.css";
+@import "@fontsource/inter/700.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/500.css";
 @import "@fontsource/poppins";
+@import "@fontsource/poppins/500.css";
 @import "@fontsource/poppins/800.css";
 @import "tailwindcss";
 
@@ -71,6 +75,10 @@ h6 {
   @apply text-5xl md:text-8xl;
 }
 
+.heading-6xl {
+  @apply text-3xl md:text-6xl;
+}
+
 .heading-5xl {
   @apply text-2xl md:text-5xl;
 }
@@ -80,19 +88,23 @@ h6 {
 }
 
 .heading-3xl {
-  @apply text-base md:text-lg font-medium;
+  @apply text-xl md:text-3xl;
 }
 
-.heading-6xl {
-  @apply text-3xl md:text-6xl;
-}
-
-.body-2xl {
-  @apply text-base md:text-2xl;
+.heading-2xl {
+  @apply text-lg md:text-2xl;
 }
 
 .heading-xl {
   @apply text-sm md:text-xl;
+}
+
+.heading-lg {
+  @apply text-base md:text-lg font-medium;
+}
+
+.body-2xl {
+  @apply text-base md:text-2xl;
 }
 
 .lineHeight-2rem {
