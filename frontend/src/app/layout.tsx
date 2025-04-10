@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components";
+import { Footer } from "@/components";
 import { ReactQueryProvider } from "@/providers/ReactQueryProvider";
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 
@@ -35,6 +36,7 @@ export default function RootLayout({
             <Breadcrumb />
             {children}
           </Navbar>
+          <Footer />
         </ReactQueryProvider>
       </body>
     </html>
