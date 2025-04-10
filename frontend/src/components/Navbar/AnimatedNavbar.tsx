@@ -4,11 +4,12 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import NavbarShell from "./NavbarShell";
+import { heroPages } from "@/lib/navbarConfig";
 
 export default function AnimatedNavbar() {
   const [isAtTop, setIsAtTop] = useState(true);
   const pathName = usePathname();
-  const isLandingPage = pathName === "/";
+  const isLandingPage = heroPages.includes(pathName);
   const isAtTopLandingPage = isAtTop && isLandingPage;
 
   useEffect(() => {
