@@ -25,7 +25,7 @@ export async function GET(
   req: NextRequest,
   { params }: { params: { slug: string } }
 ) {
-  const { slug } = params;
+  const { slug } = await params;
 
   try {
     const data: any = await request(
@@ -34,7 +34,6 @@ export async function GET(
       { slug },
       GRAPHQL_HEADERS
     );
-
     return NextResponse.json(data.news_connection?.nodes[0]);
   } catch (error) {
     return NextResponse.error();

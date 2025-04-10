@@ -24,7 +24,7 @@ interface LocationsQueryResponse {
 // GraphQL query
 const LOCATIONS_QUERY = gql`
   query GetLocations {
-    locations {
+    locations(sort: "createdAt:asc") {
       Title
       Email
       Phone
@@ -41,6 +41,7 @@ export async function GET() {
       {},
       headers,
     );
+
     return NextResponse.json(data.locations);
   } catch (err) {
     return NextResponse.json(
