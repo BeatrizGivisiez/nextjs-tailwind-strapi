@@ -2,6 +2,7 @@
 
 import { useLastNews } from "@/hooks/News/useLastNews";
 import { useNoticia } from "@/hooks/News/useSingleNew";
+import SingleNewPageSkeleton from "@/modules/noticia/components/Skeleton";
 import { NoticiaPage } from "@/modules/noticia/page";
 import { use } from "react";
 
@@ -22,7 +23,7 @@ export default function Noticia({ params }: NoticiaPageProps) {
     isLoading: isLoadingLastNews,
   } = useLastNews();
 
-  if (isLoading) return <p>Loading...</p>; // meter skeleton
+  if (isLoading) return <SingleNewPageSkeleton />; // meter skeleton
 
   return <NoticiaPage item={noticia} lastNews={lastNews} />;
 }

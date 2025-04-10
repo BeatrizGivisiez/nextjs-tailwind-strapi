@@ -1,15 +1,19 @@
 import CustomButton from "@/components/Buttons/CustomButton";
 import RichTextRenderer from "@/components/RichTextRenderer/RichTextRenderer";
 import { NewsArticle } from "@/hooks/News/useNews";
+import CarouselSkeletonLayout from "@/layouts/CarouselSkeletonLayout";
 import { NoticiasItemLastNewCard } from "@/modules/noticias/components/Items/LastNewCard";
 import { formatDateInPortuguese } from "@/utils/dateHelpers";
 import { ShareNetwork } from "@phosphor-icons/react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import { CaretRight } from "phosphor-react";
+import { useRouter } from "next/navigation";
 
 const NoticiaImageCarousel = dynamic(
   () => import("../components/ImageCarousel"),
   {
+    loading: () => <CarouselSkeletonLayout nSlides={1} />,
     ssr: false,
   }
 );
@@ -23,6 +27,12 @@ export const NoticiaPage: React.FC<NoticiasPageProps> = ({
   item,
   lastNews,
 }) => {
+  const router = useRouter();
+
+  const handleLastNewsDivClick = () => {
+    router.push(`/noticias`);
+  };
+
   return (
     <>
       <div className="custom-container mt-12">
@@ -60,9 +70,15 @@ export const NoticiaPage: React.FC<NoticiasPageProps> = ({
             <RichTextRenderer content={item.Conteudo} />
           </div>
           <div className="col-span-full lg:col-span-2 ">
-            <h4 className="heading-xl text-primary font-semibold">
-              Últimas Noticías
-            </h4>
+            <div
+              className="flex items-center gap-2 hover:underline transition-all cursor-pointer"
+              onClick={handleLastNewsDivClick}
+            >
+              <h4 className="heading-xl text-primary font-semibold">
+                Últimas Noticías
+              </h4>
+              <CaretRight />
+            </div>
             <div className="grid gap-3 mt-4">
               {lastNews?.map((newsItem) => {
                 return (

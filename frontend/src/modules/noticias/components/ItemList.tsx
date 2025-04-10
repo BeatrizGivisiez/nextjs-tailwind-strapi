@@ -3,6 +3,7 @@ import { NewsArticle } from "@/hooks/News/useNews";
 import React from "react";
 import { NoticiasItemListCard } from "./Items/Card";
 import dynamic from "next/dynamic";
+import CarouselSkeletonLayout from "@/layouts/CarouselSkeletonLayout";
 
 interface Props {
   items: NewsArticle[];
@@ -12,6 +13,7 @@ interface Props {
 const NoticiasItemListCarousel = dynamic(
   () => import("./Items/ItemListCarousel"),
   {
+    loading: () => <CarouselSkeletonLayout nSlides={4} />,
     ssr: false,
   }
 );
@@ -42,7 +44,6 @@ const NoticiasItemList: React.FC<Props> = ({ items, viewMode }) => {
           ))}
         </div>
       )}
-
       {viewMode === "carousel" && <NoticiasItemListCarousel items={items} />}
     </div>
   );

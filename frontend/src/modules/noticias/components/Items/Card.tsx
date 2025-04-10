@@ -27,6 +27,7 @@ export const NoticiasItemListCard: React.FC<Props> = ({ item, viewMode }) => {
           width={800}
           height={200}
           unoptimized
+          loading="lazy"
           className={`${viewMode === "list" ? "aspect-[5/1] object-cover h-full" : ""} `}
         />
       </figure>
