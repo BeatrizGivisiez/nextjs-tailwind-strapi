@@ -5,12 +5,16 @@ import { request, gql } from "graphql-request";
 import { GRAPHQL_ENDPOINT, GRAPHQL_HEADERS } from "@/lib/apiConfig";
 
 const NEWS_QUERY = gql`
-  query GetNews($page: Int!, $pageSize: Int!) {
-    news_connection(pagination: { page: $page, pageSize: $pageSize }) {
+  query GetLastNews {
+    news_connection(
+      sort: ["publicadoEm:desc"]
+      pagination: { start: 0, limit: 5 }
+    ) {
       nodes {
         Titulo
         SubTitulo
         slug
+        Conteudo
         publicadoEm
         Imagens {
           url
@@ -18,30 +22,19 @@ const NEWS_QUERY = gql`
           caption
         }
       }
-      pageInfo {
-        total
-        page
-        pageSize
-        pageCount
-      }
     }
   }
 `;
 
 export async function GET(req: NextRequest) {
   try {
-    const { searchParams } = new URL(req.url);
-    const page = Number(searchParams.get("page") ?? 1);
-    const pageSize = Number(searchParams.get("pageSize") ?? 20);
-
-    const data = await request(
+    const data: any = await request(
       GRAPHQL_ENDPOINT,
       NEWS_QUERY,
-      { page, pageSize },
       GRAPHQL_HEADERS
     );
 
-    return NextResponse.json(data);
+    return NextResponse.json(data.news_connection?.nodes);
   } catch (err) {
     return NextResponse.json(
       { error: "Failed to fetch news" },

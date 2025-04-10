@@ -18,9 +18,7 @@ interface LocationAttributes {
 }
 
 interface LocationsQueryResponse {
-  locations: {
-    attributes: LocationAttributes;
-  }[];
+  locations: LocationAttributes[];
 }
 
 // GraphQL query
@@ -41,19 +39,13 @@ export async function GET() {
       endpoint,
       LOCATIONS_QUERY,
       {},
-      headers
+      headers,
     );
-    console.log("data:", data); // Log the data for debugging
-    const locations = data.locations.map((item) => ({
-      ...item.attributes,
-    }));
-
-    return NextResponse.json(locations);
+    return NextResponse.json(data.locations);
   } catch (err) {
-    console.log("Error fetching locations:", err);
     return NextResponse.json(
       { error: "Failed to fetch locations" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

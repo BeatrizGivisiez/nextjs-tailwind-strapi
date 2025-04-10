@@ -5,7 +5,7 @@ import Logo from "@/assets/CedemaBlueWhiteLogo.png";
 
 export const Footer = () => {
   return (
-    <section className="bg-primary px-6 py-16 text-sm text-white lg:px-40">
+    <section className="mt-20 bg-primary px-6 py-16 text-sm text-white lg:px-40">
       <div className="flex flex-col justify-between gap-12 lg:flex-row">
         {/* Left Section: Logo + Address */}
         <div className="max-w-md space-y-4">

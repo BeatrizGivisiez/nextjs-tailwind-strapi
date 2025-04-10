@@ -32,10 +32,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ReactQueryProvider>
-          <Navbar>
-            <Breadcrumb />
-            {children}
-          </Navbar>
+          <Navbar> </Navbar>
+          <Breadcrumb />
+          {children}
           <Footer />
         </ReactQueryProvider>
       </body>
