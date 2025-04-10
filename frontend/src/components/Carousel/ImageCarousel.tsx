@@ -13,9 +13,10 @@ interface Props {
     alternativeText?: string;
     caption?: string;
   }[];
+  aspectRatio?: string;
 }
 
-const NoticiaImageCarousel: React.FC<Props> = ({ images }) => {
+const ImageCarousel: React.FC<Props> = ({ images, aspectRatio = "5/2" }) => {
   return (
     <div className="relative w-full overflow-hidden">
       <Swiper
@@ -34,7 +35,7 @@ const NoticiaImageCarousel: React.FC<Props> = ({ images }) => {
                 width={800}
                 height={200}
                 layout="responsive"
-                className="aspect-[5/2] object-cover w-full h-full shadow-sm"
+                className={`aspect-[${aspectRatio}] object-cover w-full h-full shadow-sm`}
               />
             </div>
           </SwiperSlide>
@@ -44,4 +45,4 @@ const NoticiaImageCarousel: React.FC<Props> = ({ images }) => {
   );
 };
 
-export default NoticiaImageCarousel;
+export default ImageCarousel;

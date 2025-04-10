@@ -11,7 +11,7 @@ import { CaretRight } from "phosphor-react";
 import { useRouter } from "next/navigation";
 
 const NoticiaImageCarousel = dynamic(
-  () => import("../components/ImageCarousel"),
+  () => import("../../../components/Carousel/ImageCarousel"),
   {
     loading: () => <CarouselSkeletonLayout nSlides={1} />,
     ssr: false,

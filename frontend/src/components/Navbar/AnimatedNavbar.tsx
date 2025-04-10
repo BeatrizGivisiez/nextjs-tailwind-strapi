@@ -9,8 +9,8 @@ import { heroPages } from "@/lib/navbarConfig";
 export default function AnimatedNavbar() {
   const [isAtTop, setIsAtTop] = useState(true);
   const pathName = usePathname();
-  const isLandingPage = heroPages.includes(pathName);
-  const isAtTopLandingPage = isAtTop && isLandingPage;
+  const isHeroPage = heroPages.includes(pathName);
+  const isAtTopLandingPage = isAtTop && pathName === "/";
 
   useEffect(() => {
     const onScroll = () => setIsAtTop(window.scrollY === 0);
@@ -21,7 +21,7 @@ export default function AnimatedNavbar() {
 
   return (
     <motion.div
-      className={`${isLandingPage ? "fixed" : ""} z-[20] ${isAtTopLandingPage ? "mt-[5vh]" : ""} min-h-[40px] px-6 lg:px-10 p-0 pb-0 navbar items-start justify-between lg:items-center bg-white overflow-hidden shadow-lg `}
+      className={`${isHeroPage ? "fixed" : ""} z-[20] ${isAtTopLandingPage ? "mt-[5vh]" : ""} min-h-[40px] px-6 lg:px-10 p-0 pb-0 navbar items-start justify-between lg:items-center bg-white overflow-hidden shadow-lg `}
       animate={{
         width: isAtTopLandingPage ? "70%" : "100%",
         opacity: 1,

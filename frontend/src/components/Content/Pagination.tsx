@@ -8,7 +8,7 @@ interface Props {
   onPageChange: (newPage: number) => void;
 }
 
-const NoticiasPagination: React.FC<Props> = ({
+const ContentListPagination: React.FC<Props> = ({
   currentPage,
   totalPages,
   onPageChange,
@@ -52,4 +52,4 @@ const NoticiasPagination: React.FC<Props> = ({
   );
 };
 
-export default NoticiasPagination;
+export default ContentListPagination;

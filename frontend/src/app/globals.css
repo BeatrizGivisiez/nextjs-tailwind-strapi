@@ -115,3 +115,7 @@ button {
   font-family: "Inter", sans-serif;
   text-transform: uppercase;
 }
+
+.clip-hero {
+  clip-path: ellipse(75% 88% at 57% 12%);
+}

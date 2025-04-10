@@ -5,14 +5,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import { NoticiasItemListCard } from "./Card";
+import { ContentItemListCard } from "../Content/Card";
 import { NewsArticle } from "@/hooks/News/useNews";
+import { ProjectsArticle } from "@/hooks/Projects/useProjects";
 
 interface Props {
-  items: NewsArticle[];
+  items: NewsArticle[] | ProjectsArticle[];
 }
 
-const NoticiasItemListCarousel: React.FC<Props> = ({ items }) => {
+const ContentItemListCarousel: React.FC<Props> = ({ items }) => {
   return (
     <div className="relative">
       <Swiper
@@ -32,7 +33,7 @@ const NoticiasItemListCarousel: React.FC<Props> = ({ items }) => {
       >
         {items.map((item, index) => (
           <SwiperSlide key={index} className="pb-10">
-            <NoticiasItemListCard item={item} key={item.slug} />
+            <ContentItemListCard item={item} key={item.slug} />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -40,4 +41,4 @@ const NoticiasItemListCarousel: React.FC<Props> = ({ items }) => {
   );
 };
 
-export default NoticiasItemListCarousel;
+export default ContentItemListCarousel;

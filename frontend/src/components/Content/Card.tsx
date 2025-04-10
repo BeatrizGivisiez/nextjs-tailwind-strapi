@@ -1,19 +1,19 @@
-import { NewsArticle } from "@/hooks/News/useNews";
 import { formatDateInPortuguese } from "@/utils/dateHelpers";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 interface Props {
-  item: NewsArticle;
+  item: any;
   viewMode?: string;
 }
 
-export const NoticiasItemListCard: React.FC<Props> = ({ item, viewMode }) => {
+export const ContentItemListCard: React.FC<Props> = ({ item, viewMode }) => {
   const router = useRouter();
-  const imageUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}${item.Imagens[0].url}`;
+  const pathname = usePathname();
 
+  const imageUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}${item.Imagens[0].url}`;
   const handleButtonClick = () => {
-    router.push(`/noticias/${item.slug}`);
+    router.push(`${pathname}/${item.slug}`);
   };
 
   return (
@@ -35,9 +35,11 @@ export const NoticiasItemListCard: React.FC<Props> = ({ item, viewMode }) => {
         <h2 className="card-title text-neutral font-extrabold body-2xl font-header">
           {item.Titulo}
         </h2>
-        <p className="text-primary text-base font-medium">
-          {formatDateInPortuguese(item.publicadoEm)}
-        </p>
+        {item.publicadoEm && (
+          <p className="text-primary text-base font-medium">
+            {formatDateInPortuguese(item.publicadoEm)}
+          </p>
+        )}
         <div className="card-actions justify-end">
           <button
             onClick={handleButtonClick}

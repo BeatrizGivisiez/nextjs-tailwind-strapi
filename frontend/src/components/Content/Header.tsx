@@ -10,7 +10,7 @@ interface Props {
   viewMode: string;
 }
 
-const NoticiasHeader: React.FC<Props> = ({
+const ContentListHeader: React.FC<Props> = ({
   resultsCount,
   filter,
   onFilterChange,
@@ -80,4 +80,4 @@ const NoticiasHeader: React.FC<Props> = ({
   );
 };
 
-export default NoticiasHeader;
+export default ContentListHeader;

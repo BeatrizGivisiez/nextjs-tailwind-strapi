@@ -3,13 +3,14 @@
 
 import React, { useState, useEffect, ChangeEvent } from "react";
 import { debounce } from "lodash";
-import Header from "../../../components/Content/Header";
-import ContentItemList from "../../../components/Content/ItemList";
-import Pagination from "../../../components/Content/Pagination";
+import Header from "@/components/Content/Header";
+import Pagination from "@/components/Content/Pagination";
 import { NewsArticle } from "@/hooks/News/useNews";
+import { ProjectsArticle } from "@/hooks/Projects/useProjects";
+import ContentItemList from "@/components/Content/ItemList";
 
-interface NoticiasPageProps {
-  items: NewsArticle[];
+interface ProjectsPageProps {
+  items: ProjectsArticle[];
   pageInfo: {
     total: number;
     page: number;
@@ -19,14 +20,14 @@ interface NoticiasPageProps {
   onPageChange: (newPage: number) => void;
 }
 
-export const NoticiasPage: React.FC<NoticiasPageProps> = ({
+export const ProjectsPage: React.FC<ProjectsPageProps> = ({
   items,
   pageInfo,
   onPageChange,
 }) => {
-  const [filteredItems, setFilteredItems] = useState<NewsArticle[]>(items);
+  const [filteredItems, setFilteredItems] = useState<ProjectsArticle[]>(items);
   const [filter, setFilter] = useState<string>("");
-  const [viewMode, setViewMode] = useState<string>("grid");
+  const [viewMode, setViewMode] = useState<string>("list");
 
   // Debounced filter handler
   const debouncedFilter = debounce((filterText: string) => {

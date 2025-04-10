@@ -1,7 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 export const BotoesInfo = () => {
+  const router = useRouter();
+
   return (
     <section className="bg-white px-20 py-25 lg:px-40">
       <div className="mx-auto grid max-w-screen-lg grid-cols-1 gap-6 lg:grid-cols-3">
@@ -59,7 +62,8 @@ export const BotoesInfo = () => {
               hover: { opacity: 1, y: 0 },
             }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="absolute bottom-4 z-10 rounded bg-white px-4 py-2 text-sm font-semibold text-black shadow"
+            className="cursor-pointer absolute bottom-4 z-10 rounded bg-white px-4 py-2 text-sm font-semibold text-black shadow"
+            onClick={() => router.push("/projetos")}
           >
             SABER MAIS
           </motion.button>
