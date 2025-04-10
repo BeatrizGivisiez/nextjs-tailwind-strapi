@@ -1,36 +1,13 @@
 "use client";
 
 import { Buildings, Phone, EnvelopeSimple } from "phosphor-react";
+import { NewLocations } from "@/hooks/Locations/useLocations";
 
-export const ContactInfo = () => {
-  const locations = [
-    {
-      title: "SEDE",
-      address: "Rua Varela Silva, Lote 8 – Loja A\n1750-403 Lisboa",
-      phone: "+351 218 149 314",
-      email: "comunicacao@cedema.org.pt",
-    },
-    {
-      title: "CAO “VIDA VIVA”",
-      address: "Rua Varela Silva, lote 6 e 7, Loja A\n1750-403 Lisboa",
-      phone: "+351 217 552 760",
-      email: "caci.ameixoeira@cedema.org.pt",
-    },
-    {
-      title: "LAR “VIDA VIVA”",
-      address: "Rua Fernanda Alves, lote 3, r/c dto\n1750-391 Lisboa",
-      phone: "+351 214 044 320",
-      email: "cedema.lar@cedema.org.pt",
-    },
-    {
-      title: "EQUIPAMENTO SOCIAL “TELHADINHO”",
-      address:
-        "Rua das Fontainhas, lote 26 – Bairro das Fontainhas\n1685-691 Famões",
-      phone: "+351 219 346 060",
-      email: "telhadinho@cedema.org.pt",
-    },
-  ];
+interface ContactInfoProps {
+  locations: NewLocations[];
+}
 
+export const ContactInfo: React.FC<ContactInfoProps> = ({ locations }) => {
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-16">
       <h3 className="text-primary heading-4xl font-extrabold pb-10">
@@ -45,25 +22,24 @@ export const ContactInfo = () => {
                 weight="bold"
                 className="shrink-0 mt-[2px]"
               />
-              <span>{loc.title}</span>
+              <span>{loc.Title}</span>
             </div>
-            <p className="whitespace-pre-line">{loc.address}</p>
+            <p className="whitespace-pre-line">{loc.Address}</p>
             <p className="flex items-start gap-2">
               <Phone
                 size={14}
                 weight="regular"
                 className="text-gray-600 mt-[2px] shrink-0"
               />
-              <span className="leading-snug">{loc.phone}</span>
+              <span className="leading-snug">{loc.Phone}</span>
             </p>
-
             <p className="flex items-start gap-2 break-all">
               <EnvelopeSimple
                 size={14}
                 weight="regular"
                 className="text-gray-600 mt-[2px] shrink-0"
               />
-              <span className="leading-snug">{loc.email}</span>
+              <span className="leading-snug">{loc.Email}</span>
             </p>
           </div>
         ))}
