@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "testemunhos",
+  "info": {
+    "singularName": "testemunho",
+    "pluralName": "testemunhos",
+    "displayName": "Testemunho"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Nome": {
+      "type": "string",
+      "required": true
+    },
+    "Testemunho": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

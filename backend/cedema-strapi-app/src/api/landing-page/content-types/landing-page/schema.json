@@ -1,0 +1,47 @@
+{
+  "kind": "singleType",
+  "collectionName": "landing_pages",
+  "info": {
+    "singularName": "landing-page",
+    "pluralName": "landing-pages",
+    "displayName": "Landing-Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "ImagemHero": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "CedemaAbout": {
+      "type": "text",
+      "required": true,
+      "maxLength": 450
+    },
+    "OndeEstamos": {
+      "type": "text",
+      "required": true,
+      "maxLength": 450
+    },
+    "testemunhos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::testemunho.testemunho"
+    },
+    "youtube_videos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::youtube-video.youtube-video"
+    },
+    "GoogleMaps": {
+      "type": "text"
+    }
+  }
+}
