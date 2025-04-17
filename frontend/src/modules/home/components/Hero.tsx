@@ -6,23 +6,31 @@ import iefp from "@/assets/iefp.png";
 import gnr from "@/assets/gnr.png";
 import { CaretDoubleDown } from "phosphor-react";
 
-export const Hero = () => {
+type HeroProps = {
+  imagemHero: string;
+};
+
+export const Hero = ({ imagemHero }: HeroProps) => {
+  const imageUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}${imagemHero}`;
   return (
-    <div className="flex flex-col min-h-[100vh] justify-center bg-[url('@/assets/HeroBG.jpg')] bg-cover bg-center">
-      <section className="relative flex-grow flex items-center justify-center text-white bg-black/40 pt-[80px]">
+    <div
+      className="flex min-h-[100vh] flex-col justify-center bg-cover bg-center"
+      style={{ backgroundImage: `url(${imageUrl})` }}
+    >
+      <section className="relative flex flex-grow items-center justify-center bg-black/40 pt-[80px] text-white">
         <div className="custom-container z-[1] text-left">
-          <h1 className="heading-5xl font-extrabold leading-tight">
+          <h1 className="heading-5xl leading-tight font-extrabold">
             <span className="block">SABEMOS QUE</span>
-            <span className="block heading-8xl">MELHOR QUE SORRIR</span>
+            <span className="heading-8xl block">MELHOR QUE SORRIR</span>
             <span className="block">É SORRIREM CONNOSCO</span>
           </h1>
 
-          <h2 className="mt-6 font-bold heading-xl mx-auto">
+          <h2 className="heading-xl mx-auto mt-6 font-bold">
             Ajude-nos a transformar vidas através do voluntariado e apoio
             solidário
           </h2>
 
-          <div className="mt-8 flex gap-4 flex-wrap justify-center md:justify-start">
+          <div className="mt-8 flex flex-wrap justify-center gap-4 md:justify-start">
             <CustomButton
               color="primary"
               label="Apoie Agora"
@@ -37,7 +45,7 @@ export const Hero = () => {
             />
           </div>
 
-          <div className="mt-10 text-lg flex flex-col md:flex-row gap-4 md:items-center font-normal">
+          <div className="mt-10 flex flex-col gap-4 text-lg font-normal md:flex-row md:items-center">
             PARCEIROS:
             <div className="flex gap-4">
               <Image src={cmOdivelas} alt="Odivelas Câmara Municipal" />
@@ -46,9 +54,9 @@ export const Hero = () => {
             </div>
           </div>
 
-          <div className="flex gap-4 justify-center md:justify-start items-center mt-8">
+          <div className="mt-8 flex items-center justify-center gap-4 md:justify-start">
             <CaretDoubleDown weight="bold" size={32} />
-            <p className="uppercase text-sm md:text-base font-extrabold font-header">
+            <p className="font-header text-sm font-extrabold uppercase md:text-base">
               Continue a Explorar
             </p>
           </div>

@@ -1,23 +1,15 @@
 "use client";
-
-import { ReactNode } from "react";
+import { useRouter } from "next/navigation";
 
 interface CustomButtonProps {
   label: string;
-  color:
-    | "neutral"
-    | "primary"
-    | "secondary"
-    | "accent"
-    | "info"
-    | "success"
-    | "warning"
-    | "error";
-  variant?: "soft" | "outline" | "dash" | "active";
-  disabled?: boolean;
-  size?: "xs" | "sm" | "lg" | "xl";
-  icon?: ReactNode;
+  color?: string;
+  icon?: React.ReactNode;
   className?: string;
+  variant?: string;
+  disabled?: boolean;
+  size?: string;
+  path?: string; // <- path for internal/external navigation
 }
 
 export default function CustomButton({
@@ -28,7 +20,10 @@ export default function CustomButton({
   variant,
   disabled = false,
   size,
+  path,
 }: CustomButtonProps) {
+  const router = useRouter();
+
   const btnClasses = [
     "btn",
     `btn-${color}`,
@@ -40,8 +35,19 @@ export default function CustomButton({
     .filter(Boolean)
     .join(" ");
 
+  const handleClick = () => {
+    if (disabled || !path) return;
+
+    // If it's an external link (starts with http), use window.location
+    if (path.startsWith("http")) {
+      window.open(path, "_blank");
+    } else {
+      router.push(path);
+    }
+  };
+
   return (
-    <button className={btnClasses}>
+    <button className={btnClasses} onClick={handleClick} disabled={disabled}>
       {icon}
       {label}
     </button>

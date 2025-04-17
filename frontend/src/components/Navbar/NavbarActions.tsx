@@ -1,5 +1,6 @@
 "use client";
-import { FacebookLogo, YoutubeLogo, Hand } from "phosphor-react";
+import { HandCoins } from "@phosphor-icons/react";
+import { FacebookLogo, YoutubeLogo } from "phosphor-react";
 
 const NavbarActions = ({ small }: { small?: boolean }) => {
   return (
@@ -13,7 +14,7 @@ const NavbarActions = ({ small }: { small?: boolean }) => {
 
       {/* Icon-only button - visible only on mobile */}
       <button className="bg-primary text-white rounded-full p-1 flex sm:hidden items-center justify-center">
-        <Hand size={20} weight="fill" />
+        <HandCoins size={20} weight="fill" />
       </button>
 
       <a
