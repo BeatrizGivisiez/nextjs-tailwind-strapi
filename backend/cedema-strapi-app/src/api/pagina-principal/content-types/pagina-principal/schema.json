@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "landing_pages",
+  "collectionName": "pagina_principals",
   "info": {
-    "singularName": "landing-page",
-    "pluralName": "landing-pages",
-    "displayName": "Landing-Page",
+    "singularName": "pagina-principal",
+    "pluralName": "pagina-principals",
+    "displayName": "PaginaPrincipal",
     "description": ""
   },
   "options": {
@@ -14,31 +14,29 @@
     "ImagemHero": {
       "type": "media",
       "multiple": false,
-      "required": true,
+      "required": false,
       "allowedTypes": [
         "images",
-        "files"
+        "files",
+        "videos",
+        "audios"
       ]
     },
     "CedemaAbout": {
-      "type": "text",
-      "required": true,
-      "maxLength": 450
+      "type": "text"
     },
     "OndeEstamos": {
-      "type": "text",
-      "required": true,
-      "maxLength": 450
+      "type": "text"
     },
     "testemunhos": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::testemunho.testemunho"
     },
-    "youtube_videos": {
+    "youtube_video_urls": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::youtube-video.youtube-video"
+      "target": "api::youtube-video-url.youtube-video-url"
     },
     "GoogleMaps": {
       "type": "text"

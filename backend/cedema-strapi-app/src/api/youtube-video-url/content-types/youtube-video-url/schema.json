@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "youtube_video_urls",
+  "info": {
+    "singularName": "youtube-video-url",
+    "pluralName": "youtube-video-urls",
+    "displayName": "YoutubeVideoUrl",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "YoutubeUrl": {
+      "type": "text"
+    },
+    "Thumbnail": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

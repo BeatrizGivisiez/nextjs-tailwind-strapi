@@ -369,55 +369,6 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiLandingPageLandingPage extends Struct.SingleTypeSchema {
-  collectionName: 'landing_pages';
-  info: {
-    description: '';
-    displayName: 'Landing-Page';
-    pluralName: 'landing-pages';
-    singularName: 'landing-page';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    CedemaAbout: Schema.Attribute.Text &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 450;
-      }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    GoogleMaps: Schema.Attribute.Text;
-    ImagemHero: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::landing-page.landing-page'
-    > &
-      Schema.Attribute.Private;
-    OndeEstamos: Schema.Attribute.Text &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 450;
-      }>;
-    publishedAt: Schema.Attribute.DateTime;
-    testemunhos: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::testemunho.testemunho'
-    >;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    youtube_videos: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::youtube-video.youtube-video'
-    >;
-  };
-}
-
 export interface ApiLocationLocation extends Struct.CollectionTypeSchema {
   collectionName: 'locations';
   info: {
@@ -485,6 +436,49 @@ export interface ApiNewNew extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPaginaPrincipalPaginaPrincipal
+  extends Struct.SingleTypeSchema {
+  collectionName: 'pagina_principals';
+  info: {
+    description: '';
+    displayName: 'PaginaPrincipal';
+    pluralName: 'pagina-principals';
+    singularName: 'pagina-principal';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    CedemaAbout: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    GoogleMaps: Schema.Attribute.Text;
+    ImagemHero: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pagina-principal.pagina-principal'
+    > &
+      Schema.Attribute.Private;
+    OndeEstamos: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    testemunhos: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::testemunho.testemunho'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    youtube_video_urls: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::youtube-video-url.youtube-video-url'
+    >;
+  };
+}
+
 export interface ApiTestemunhoTestemunho extends Struct.CollectionTypeSchema {
   collectionName: 'testemunhos';
   info: {
@@ -514,14 +508,14 @@ export interface ApiTestemunhoTestemunho extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiYoutubeVideoYoutubeVideo
+export interface ApiYoutubeVideoUrlYoutubeVideoUrl
   extends Struct.CollectionTypeSchema {
-  collectionName: 'youtube_videos';
+  collectionName: 'youtube_video_urls';
   info: {
     description: '';
-    displayName: 'Youtube Video';
-    pluralName: 'youtube-videos';
-    singularName: 'youtube-video';
+    displayName: 'YoutubeVideoUrl';
+    pluralName: 'youtube-video-urls';
+    singularName: 'youtube-video-url';
   };
   options: {
     draftAndPublish: true;
@@ -533,15 +527,16 @@ export interface ApiYoutubeVideoYoutubeVideo
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::youtube-video.youtube-video'
+      'api::youtube-video-url.youtube-video-url'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Titulo: Schema.Attribute.String & Schema.Attribute.Required;
+    Thumbnail: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    YoutubeURL: Schema.Attribute.String & Schema.Attribute.Required;
+    YoutubeUrl: Schema.Attribute.Text;
   };
 }
 
@@ -1054,11 +1049,11 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::landing-page.landing-page': ApiLandingPageLandingPage;
       'api::location.location': ApiLocationLocation;
       'api::new.new': ApiNewNew;
+      'api::pagina-principal.pagina-principal': ApiPaginaPrincipalPaginaPrincipal;
       'api::testemunho.testemunho': ApiTestemunhoTestemunho;
-      'api::youtube-video.youtube-video': ApiYoutubeVideoYoutubeVideo;
+      'api::youtube-video-url.youtube-video-url': ApiYoutubeVideoUrlYoutubeVideoUrl;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
