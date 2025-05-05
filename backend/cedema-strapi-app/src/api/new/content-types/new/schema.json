@@ -39,6 +39,9 @@
     "SubTitulo": {
       "type": "string",
       "required": true
+    },
+    "Destaque": {
+      "type": "boolean"
     }
   }
 }
