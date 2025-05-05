@@ -1,30 +1,28 @@
 // ItemList.tsx
-import { NewsArticle } from "@/hooks/News/useNews";
 import React from "react";
-import { NoticiasItemListCard } from "./Items/Card";
+import { ContentItemListCard } from "./Card";
 import dynamic from "next/dynamic";
 import CarouselSkeletonLayout from "@/layouts/CarouselSkeletonLayout";
+import { NewsArticle } from "@/hooks/News/useNews";
+import { ProjectsArticle } from "@/hooks/Projects/useProjects";
 
 interface Props {
-  items: NewsArticle[];
+  items: NewsArticle[] | ProjectsArticle[];
   viewMode: string;
 }
 
-const NoticiasItemListCarousel = dynamic(
-  () => import("./Items/ItemListCarousel"),
-  {
-    loading: () => <CarouselSkeletonLayout nSlides={4} />,
-    ssr: false,
-  }
-);
+const ItemListCarousel = dynamic(() => import("../Carousel/ItemListCarousel"), {
+  loading: () => <CarouselSkeletonLayout nSlides={4} />,
+  ssr: false,
+});
 
-const NoticiasItemList: React.FC<Props> = ({ items, viewMode }) => {
+const ContentItemList: React.FC<Props> = ({ items, viewMode }) => {
   return (
     <div className="mt-4">
       {viewMode === "grid" && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {items.map((item) => (
-            <NoticiasItemListCard
+            <ContentItemListCard
               item={item}
               key={item.slug}
               viewMode={viewMode}
@@ -36,7 +34,7 @@ const NoticiasItemList: React.FC<Props> = ({ items, viewMode }) => {
       {viewMode === "list" && (
         <div className="grid grid-cols-1 gap-4">
           {items.map((item) => (
-            <NoticiasItemListCard
+            <ContentItemListCard
               item={item}
               key={item.slug}
               viewMode={viewMode}
@@ -44,9 +42,9 @@ const NoticiasItemList: React.FC<Props> = ({ items, viewMode }) => {
           ))}
         </div>
       )}
-      {viewMode === "carousel" && <NoticiasItemListCarousel items={items} />}
+      {viewMode === "carousel" && <ItemListCarousel items={items} />}
     </div>
   );
 };
 
-export default NoticiasItemList;
+export default ContentItemList;

@@ -1,13 +1,14 @@
 "use client";
+
 import Link from "next/link";
-import Image from "next/image"; // or any icon lib
+import Image from "next/image";
 import React from "react";
 import logo from "../../assets/CedemaBlueLogo.png";
 
 const NavbarMenu: React.FC = () => {
   return (
-    <ul className="menu p-0 m-0 px-3 gap-2 text-xs font-bold font-header uppercase text-primary lg:menu-horizontal">
-      {/* 👇 Mobile-only logo/icon */}
+    <ul className="menu font-header text-primary lg:menu-horizontal z-30 m-0 gap-2 p-0 px-3 text-xs font-bold uppercase">
+      {/* Mobile-only logo/icon */}
       <li className="block lg:hidden">
         <Link href="/">
           <Image
@@ -19,20 +20,103 @@ const NavbarMenu: React.FC = () => {
           />
         </Link>
       </li>
-      <li>
-        <Link href="/quem-somos">Quem Somos</Link>
+      <li className="group relative">
+        <Link href="/quem-somos" className="cursor-pointer">
+          Quem Somos
+        </Link>
+        <ul className="menu bg-base-100 z-50 mt-2 ml-4 block w-max space-y-1 lg:absolute lg:left-0 lg:!m-1 lg:!mt-7 lg:hidden lg:w-max lg:rounded-md lg:shadow lg:group-hover:block">
+          <li>
+            <Link href="/quem-somos/mensagem-da-presidente">
+              Mensagem da Presidente
+            </Link>
+          </li>
+          <li>
+            <Link href="/quem-somos/historia">História</Link>
+          </li>
+          <li>
+            <Link href="/quem-somos/missao-valores">Missão e Valores</Link>
+          </li>
+          <li>
+            <Link href="/quem-somos/organizacao-estatutos">
+              Organização e Estatutos
+            </Link>
+          </li>
+          <li>
+            <Link href="/quem-somos/financiamento">Financiamento</Link>
+          </li>
+        </ul>
       </li>
-      <li>
-        <Link href="/respostas-sociais">Respostas Sociais</Link>
+      <li className="group relative">
+        <Link href="/respostas-sociais" className="cursor-pointer">
+          Respostas Sociais
+        </Link>
+        <ul className="menu bg-base-100 z-50 mt-2 ml-4 block w-max space-y-1 lg:absolute lg:left-0 lg:!m-1 lg:!mt-7 lg:hidden lg:w-max lg:rounded-md lg:shadow lg:group-hover:block">
+          <li>
+            <Link href="/respostas-sociais/centro-de-atividades-ocupacionais">
+              Centro de Atividades Ocupacionais
+            </Link>
+          </li>
+          <li>
+            <Link href="/respostas-sociais/lares-e-residencias-autonomas">
+              Lares e Residências Autónomas
+            </Link>
+          </li>
+        </ul>
       </li>
-      <li>
-        <Link href="/atividades">Atividades</Link>
+      <li className="group relative">
+        <Link href="/atividades" className="cursor-pointer">
+          Atividades
+        </Link>
+        <ul className="menu bg-base-100 z-50 mt-2 ml-4 block w-max space-y-1 lg:absolute lg:left-0 lg:!m-1 lg:!mt-7 lg:hidden lg:w-max lg:rounded-md lg:shadow lg:group-hover:block">
+          <li>
+            <Link href="/atividades/colonias-de-ferias">
+              Colónias de Férias
+            </Link>
+          </li>
+          <li>
+            <Link href="/atividades/gabinete-de-psicologia">
+              Gabinete de Psicologia
+            </Link>
+          </li>
+          <li>
+            <Link href="/atividades/salas-snoezelen">Salas Snoezelen</Link>
+          </li>
+          <li>
+            <Link href="/atividades/apoio-ambulatorio">Apoio Ambulatório</Link>
+          </li>
+          <li>
+            <Link href="/atividades/grupo-de-teatro">Grupo de Teatro</Link>
+          </li>
+          <li>
+            <Link href="/atividades/cozinha-para-todos">
+              Cozinha para Todos
+            </Link>
+          </li>
+          <li>
+            <Link href="/atividades/oficina-das-artes">Oficina das Artes</Link>
+          </li>
+          <li>
+            <Link href="/atividades/asas-arte-sem-amarras">
+              ASAS - Arte Sem Amarras
+            </Link>
+          </li>
+        </ul>
       </li>
       <li>
         <Link href="/parcerias">Parcerias</Link>
       </li>
-      <li>
-        <Link href="/noticias">Noticias</Link>
+
+      {/* Noticias Dropdown using DaisyUI with hover functionality */}
+      <li className="group relative">
+        <Link href="/noticias" className="cursor-pointer">
+          Notícias
+        </Link>
+        {/* Updated dropdown with absolute positioning and proper visibility */}
+        <ul className="menu bg-base-100 z-50 mt-2 ml-4 block space-y-1 lg:absolute lg:left-0 lg:!m-1 lg:!mt-7 lg:hidden lg:w-max lg:rounded-md lg:shadow lg:group-hover:block">
+          <li>
+            <Link href="/eventos">Eventos</Link>
+          </li>
+        </ul>
       </li>
       <li>
         <Link href="/contactos">Contactos</Link>

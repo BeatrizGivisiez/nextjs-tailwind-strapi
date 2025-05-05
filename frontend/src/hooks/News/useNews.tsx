@@ -5,6 +5,7 @@ export interface NewsArticle {
   id: string;
   Titulo: string;
   SubTitulo?: string;
+  Destaque?: boolean;
   slug: string;
   Conteudo: string;
   publicadoEm: string;

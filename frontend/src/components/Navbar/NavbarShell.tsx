@@ -55,7 +55,7 @@ export default function NavbarShell({
 
       {/* Desktop */}
       <div
-        className={`hidden lg:flex flex-col items-end gap-2 w-full z-20 ${
+        className={`navbar hidden lg:flex flex-col items-end gap-2 w-full z-20 ${
           isDesktopHidden ? "pointer-events-none opacity-0" : ""
         }`}
       >

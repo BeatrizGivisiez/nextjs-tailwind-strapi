@@ -1,4 +1,5 @@
 "use client";
+
 import { useNews } from "@/hooks/News/useNews";
 import LeadPageLayout from "@/layouts/LeadPageLayout";
 import { NoticiasPage } from "@/modules/noticias/page";
@@ -8,6 +9,7 @@ import LeadPageSkeleton from "@/layouts/LeadPageSkeleton";
 
 export default function Noticias() {
   const [currentPage, setCurrentPage] = useState(1);
+  const [pageTitle, setPageTitle] = useState("Notícias");
   const pageSize = 20;
 
   const { data: articles, isLoading } = useNews(currentPage, pageSize);
@@ -15,23 +17,14 @@ export default function Noticias() {
   if (isLoading) return <LeadPageSkeleton />;
 
   const nodes = articles?.news_connection.nodes || [];
-  const pageInfo = articles?.news_connection.pageInfo || {
-    total: 0,
-    page: currentPage,
-    pageSize,
-    pageCount: 0,
-  };
 
   return (
-    <>
-      <LeadPageLayout title="Noticías" banner={bannerNoticias}>
-        <NoticiasPage
-          items={nodes || []}
-          pageInfo={pageInfo}
-          onPageChange={setCurrentPage}
-        />
-        <></>
-      </LeadPageLayout>
-    </>
+    <LeadPageLayout title={pageTitle} banner={bannerNoticias}>
+      <NoticiasPage
+        items={nodes}
+        onPageChange={setCurrentPage}
+        onTitleChange={setPageTitle} // Receive title from child
+      />
+    </LeadPageLayout>
   );
 }

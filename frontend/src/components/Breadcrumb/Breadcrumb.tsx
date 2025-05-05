@@ -3,10 +3,11 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { heroPages } from "@/lib/navbarConfig";
 
 export default function Breadcrumb() {
   const pathname = usePathname();
-  const isLandingPage = pathname === "/";
+  const isLandingPage = heroPages.includes(pathname);
 
   const pathSegments = pathname
     .split("/")

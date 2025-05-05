@@ -479,6 +479,39 @@ export interface ApiPaginaPrincipalPaginaPrincipal
   };
 }
 
+export interface ApiProjetoProjeto extends Struct.CollectionTypeSchema {
+  collectionName: 'projetos';
+  info: {
+    description: '';
+    displayName: 'Projetos';
+    pluralName: 'projetos';
+    singularName: 'projeto';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Conteudo: Schema.Attribute.RichText & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Descricao: Schema.Attribute.Text & Schema.Attribute.Required;
+    Imagens: Schema.Attribute.Media<'images', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::projeto.projeto'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'Titulo'> & Schema.Attribute.Required;
+    Titulo: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTestemunhoTestemunho extends Struct.CollectionTypeSchema {
   collectionName: 'testemunhos';
   info: {
@@ -1052,6 +1085,7 @@ declare module '@strapi/strapi' {
       'api::location.location': ApiLocationLocation;
       'api::new.new': ApiNewNew;
       'api::pagina-principal.pagina-principal': ApiPaginaPrincipalPaginaPrincipal;
+      'api::projeto.projeto': ApiProjetoProjeto;
       'api::testemunho.testemunho': ApiTestemunhoTestemunho;
       'api::youtube-video-url.youtube-video-url': ApiYoutubeVideoUrlYoutubeVideoUrl;
       'plugin::content-releases.release': PluginContentReleasesRelease;

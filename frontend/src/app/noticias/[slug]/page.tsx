@@ -2,8 +2,8 @@
 
 import { useLastNews } from "@/hooks/News/useLastNews";
 import { useNoticia } from "@/hooks/News/useSingleNew";
-import SingleNewPageSkeleton from "@/modules/noticia/components/Skeleton";
-import { NoticiaPage } from "@/modules/noticia/page";
+import SingleNewPageSkeleton from "@/modules/noticias/components/Skeleton";
+import { NoticiaPage } from "@/modules/noticias/page/single_index";
 import { use } from "react";
 
 interface NoticiaPageProps {

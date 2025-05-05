@@ -7,11 +7,12 @@ import { BotoesInfo } from "../components/BotoesInfo";
 import { FeedbackSection } from "../components/FeedbackSection";
 import { usePaginaPrincipal } from "@/hooks/PaginaPrincipal/usePaginaPrincipal";
 import { motion } from "framer-motion";
-import { Wheelchair } from "@phosphor-icons/react";
+import { CircleNotch } from "@phosphor-icons/react";
+import { useNews } from "@/hooks/News/useNews";
 
 export const HomePage = () => {
   const { data: landingPageData, isLoading, isError } = usePaginaPrincipal();
-  console.log("landingPageData", landingPageData?.youtube_video_urls);
+  const { data: newsData } = useNews(1); // Pass the first page as default
   if (isLoading) {
     return (
       <motion.div
@@ -24,7 +25,7 @@ export const HomePage = () => {
           animate={{ rotate: [0, 360] }}
           transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
         >
-          <Wheelchair size={48} weight="fill" color="#2563eb" />
+          <CircleNotch size={48} weight="fill" color="#2563eb" />
         </motion.div>
       </motion.div>
     );
@@ -47,9 +48,9 @@ export const HomePage = () => {
         ondeEstamos={landingPageData.OndeEstamos}
         youtube_video_urls={landingPageData.youtube_video_urls}
       />
-      <DestaquesNoticias />
+      <DestaquesNoticias news={newsData?.news_connection.nodes} />
       <BotoesInfo />
-      <FeedbackSection />
+      <FeedbackSection testemunhos={landingPageData.testemunhos} />
     </>
   );
 };

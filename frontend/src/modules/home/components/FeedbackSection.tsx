@@ -5,35 +5,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import { Testemunho } from "@/hooks/PaginaPrincipal/usePaginaPrincipal";
 
-const testimonials = [
-  {
-    text: "Foi uma experiência incrível assistir à peça. Senti-me completamente envolvido na história e emocionado com cada detalhe. Parabéns pelo excelente trabalho!",
-    author: "Carlos Mendes",
-  },
-  {
-    text: "A dedicação e o talento de todos os envolvidos são evidentes. Foi um privilégio poder assistir a algo tão bem executado. Obrigado por essa experiência!",
-    author: "Ana Costa",
-  },
-  {
-    text: "Fiquei muito impressionado com a qualidade da apresentação. Foi uma noite memorável cheia de emoção e talento. Continuem com esse trabalho maravilhoso!",
-    author: "João Pereira",
-  },
-  {
-    text: "Fiquei muito impressionado com a qualidade da apresentação. Foi uma noite memorável cheia de emoção e talento. Continuem com esse trabalho maravilhoso!",
-    author: "João Pereira",
-  },
-  {
-    text: "Fiquei muito impressionado com a qualidade da apresentação. Foi uma noite memorável cheia de emoção e talento. Continuem com esse trabalho maravilhoso!",
-    author: "João Pereira",
-  },
-  {
-    text: "Fiquei muito impressionado com a qualidade da apresentação. Foi uma noite memorável cheia de emoção e talento. Continuem com esse trabalho maravilhoso!",
-    author: "João Pereira",
-  },
-];
+type IntroProps = {
+  testemunhos: Testemunho[];
+};
 
-export const FeedbackSection = () => {
+export const FeedbackSection = ({ testemunhos }: IntroProps) => {
   return (
     <section className="bg-white px-2">
       <div className="custom-container h-full pb-15">
@@ -56,17 +34,17 @@ export const FeedbackSection = () => {
               },
             }}
           >
-            {testimonials.map((testimonial, index) => (
+            {testemunhos.map((testemunho, index) => (
               <SwiperSlide key={index} className="pb-20">
                 <div className="border-primary relative mt-8 flex h-full flex-col items-center rounded-lg border bg-white p-6 pt-10 text-sm">
                   <div className="bg-primary absolute -top-5 flex items-center justify-center rounded-full p-2">
                     <Quotes size={30} color="#fcfcfc" weight="fill" />
                   </div>
                   <p className="mb-4 flex-grow text-center">
-                    {testimonial.text}
+                    {testemunho.Testemunho}
                   </p>
                   <span className="text-primary mt-auto text-sm font-bold">
-                    {testimonial.author}
+                    {testemunho.Nome}
                   </span>
                 </div>
               </SwiperSlide>

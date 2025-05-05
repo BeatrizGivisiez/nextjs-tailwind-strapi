@@ -1,13 +1,17 @@
 "use client";
 import { HandCoins } from "@phosphor-icons/react";
 import { FacebookLogo, YoutubeLogo } from "phosphor-react";
+import { useRouter } from "next/navigation";
 
 const NavbarActions = ({ small }: { small?: boolean }) => {
+  const router = useRouter();
+
   return (
     <div className={`flex items-center gap-2 ${small ? "py-2" : "pr-5"}`}>
       {/* APOIAR button - visible on sm and up */}
       <button
         className={`btn ${small ? "btn-xs" : "btn-sm"} p-3 bg-primary text-white hidden sm:flex items-center justify-center`}
+        onClick={() => router.push("/apoiar")}
       >
         APOIAR
       </button>

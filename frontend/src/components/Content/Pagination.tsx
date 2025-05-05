@@ -1,4 +1,3 @@
-// Pagination.tsx
 import { CaretLeft, CaretRight } from "@phosphor-icons/react";
 import React from "react";
 
@@ -8,7 +7,7 @@ interface Props {
   onPageChange: (newPage: number) => void;
 }
 
-const NoticiasPagination: React.FC<Props> = ({
+const ContentListPagination: React.FC<Props> = ({
   currentPage,
   totalPages,
   onPageChange,
@@ -52,4 +51,4 @@ const NoticiasPagination: React.FC<Props> = ({
   );
 };
 
-export default NoticiasPagination;
+export default ContentListPagination;

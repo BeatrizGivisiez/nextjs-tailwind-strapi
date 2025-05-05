@@ -1,4 +1,5 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import { YoutubeLogo } from "phosphor-react";
 import image1 from "@/assets/HeroBG.jpg";
@@ -6,10 +7,8 @@ import Image from "next/image";
 import ReactPlayer from "react-player";
 import CustomButton from "@/components/Buttons/CustomButton";
 import { YoutubeVideo } from "@/hooks/PaginaPrincipal/usePaginaPrincipal";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
+import ContentItemListCarousel from "@/components/Carousel/ContentItemListCarousel";
+import { YoutubeVideoCard } from "./YoutubeVideoCard";
 
 type IntroProps = {
   cedemaAbout: string;
@@ -26,7 +25,6 @@ export const Intro = ({
 }: IntroProps) => {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
-  // Utility to extract YouTube ID from URL
   const getYouTubeId = (url: string) => {
     const match = url.match(
       /(?:youtu\.be\/|youtube\.com.*(?:v=|\/embed\/))([^\&\?\/]+)/
@@ -34,30 +32,23 @@ export const Intro = ({
     return match ? match[1] : null;
   };
 
-  // Handle opening the video player and modal
   const handleVideoClick = (videoUrl: string) => {
     const videoId = getYouTubeId(videoUrl);
     setSelectedVideo(videoId);
   };
 
-  // Close video and modal
   const closeVideo = () => {
     setSelectedVideo(null);
     const modal = document.getElementById("my_modal_2") as HTMLDialogElement;
-    if (modal) {
-      modal.close(); // Close the modal
-    }
+    if (modal) modal.close();
   };
 
-  // Ensure the modal opens immediately when a video is selected
   useEffect(() => {
     if (selectedVideo) {
       const modal = document.getElementById("my_modal_2") as HTMLDialogElement;
-      if (modal) {
-        modal.showModal(); // Show modal
-      }
+      if (modal) modal.showModal();
     }
-  }, [selectedVideo]); // This effect runs whenever selectedVideo changes
+  }, [selectedVideo]);
 
   return (
     <div className="min-h-screen">
@@ -80,9 +71,7 @@ export const Intro = ({
                   src={image1}
                   alt="Image"
                   className="h-64 cursor-pointer rounded-lg object-cover lg:h-auto"
-                  onClick={
-                    () => handleVideoClick("YOUR_YOUTUBE_URL") // Replace with actual YouTube URL
-                  }
+                  onClick={() => handleVideoClick("YOUR_YOUTUBE_URL")}
                 />
               ))}
             </div>
@@ -116,58 +105,21 @@ export const Intro = ({
           </div>
         </div>
 
-        {/* YouTube Section with Swiper */}
+        {/* YouTube Section */}
         <div className="mt-16">
           <h3 className="text-primary heading-6xl font-extrabold">
             Conheça o nosso trabalho
           </h3>
-          <Swiper
-            slidesPerView={5}
-            spaceBetween={15}
-            pagination={{ clickable: true }}
-            modules={[Pagination]}
-            className="mySwiper mt-10 pb-10"
-            breakpoints={{
-              0: {
-                slidesPerView: 2,
-              },
-              1024: {
-                slidesPerView: 5,
-              },
-            }}
-          >
-            {Array.isArray(youtube_video_urls) &&
-            youtube_video_urls.length > 0 ? (
-              youtube_video_urls.map((video, i) => {
-                return (
-                  <SwiperSlide key={i} className="pb-10">
-                    <div
-                      className="h-[200px] w-[300px] cursor-pointer pr-10"
-                      onClick={() => handleVideoClick(video.YoutubeUrl)}
-                    >
-                      <Image
-                        src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${video.Thumbnail.url}`}
-                        alt={`Thumbnail for ${video.Title}`}
-                        className="rounded-lg object-cover"
-                        fill
-                      />
-                      <div className="absolute top-0 left-0 z-[1] h-full w-full">
-                        <div className="flex h-full items-center justify-center">
-                          <YoutubeLogo
-                            weight="fill"
-                            color="var(--color-error)"
-                            size={80}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                );
-              })
-            ) : (
-              <div>No videos available</div>
+          <ContentItemListCarousel
+            items={youtube_video_urls}
+            renderItem={(video, i) => (
+              <YoutubeVideoCard
+                key={i}
+                video={video}
+                onClick={handleVideoClick}
+              />
             )}
-          </Swiper>
+          />
           <div className="flex justify-end mt-5">
             <CustomButton
               label="Ver Vídeos"
@@ -179,7 +131,7 @@ export const Intro = ({
           </div>
         </div>
 
-        {/* Modal with ReactPlayer */}
+        {/* Modal for Video Player */}
         <dialog id="my_modal_2" className="modal">
           <div className="modal-box p-0">
             {selectedVideo && (

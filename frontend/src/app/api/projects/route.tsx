@@ -4,16 +4,13 @@ import { NextRequest, NextResponse } from "next/server";
 import { request, gql } from "graphql-request";
 import { GRAPHQL_ENDPOINT, GRAPHQL_HEADERS } from "@/lib/apiConfig";
 
-const NEWS_QUERY = gql`
-  query GetNews($page: Int!, $pageSize: Int!) {
-    news_connection(pagination: { page: $page, pageSize: $pageSize }) {
+const PROJECTS_QUERY = gql`
+  query GetProjects($page: Int!, $pageSize: Int!) {
+    projetos_connection(pagination: { page: $page, pageSize: $pageSize }) {
       nodes {
         Titulo
-        SubTitulo
-        Destaque
+        Descricao
         slug
-        Conteudo
-        publicadoEm
         Imagens {
           url
           alternativeText
@@ -38,16 +35,16 @@ export async function GET(req: NextRequest) {
 
     const data = await request(
       GRAPHQL_ENDPOINT,
-      NEWS_QUERY,
+      PROJECTS_QUERY,
       { page, pageSize },
-      GRAPHQL_HEADERS,
+      GRAPHQL_HEADERS
     );
 
     return NextResponse.json(data);
   } catch (err) {
     return NextResponse.json(
-      { error: "Failed to fetch news" },
-      { status: 500 },
+      { error: "Failed to fetch projects" },
+      { status: 500 }
     );
   }
 }

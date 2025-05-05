@@ -10,7 +10,7 @@ interface Props {
   viewMode: string;
 }
 
-const NoticiasHeader: React.FC<Props> = ({
+const ContentListHeader: React.FC<Props> = ({
   resultsCount,
   filter,
   onFilterChange,
@@ -18,7 +18,7 @@ const NoticiasHeader: React.FC<Props> = ({
   viewMode,
 }) => {
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex items-center justify-between">
       <div className="text-primary font-semibold">{resultsCount} Results</div>
       <div className="flex items-center gap-4">
         <input
@@ -80,4 +80,4 @@ const NoticiasHeader: React.FC<Props> = ({
   );
 };
 
-export default NoticiasHeader;
+export default ContentListHeader;
