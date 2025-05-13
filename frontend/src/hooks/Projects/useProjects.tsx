@@ -14,7 +14,7 @@ export interface ProjectsArticle {
   }[];
 }
 
-interface PaginationMeta {
+export interface PaginationMeta {
   total: number;
   page: number;
   pageSize: number;
