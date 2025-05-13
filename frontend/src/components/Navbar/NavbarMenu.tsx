@@ -52,51 +52,51 @@ const NavbarMenu: React.FC = () => {
         </Link>
         <ul className="menu bg-base-100 z-50 mt-2 ml-4 block w-max space-y-1 lg:absolute lg:left-0 lg:!m-1 lg:!mt-7 lg:hidden lg:w-max lg:rounded-md lg:shadow lg:group-hover:block">
           <li>
-            <Link href="/respostas-sociais/centro-de-atividades-ocupacionais">
+            <Link href="/respostas-sociais?centro-de-atividades-ocupacionais">
               Centro de Atividades Ocupacionais
             </Link>
           </li>
           <li>
-            <Link href="/respostas-sociais/lares-e-residencias-autonomas">
+            <Link href="/respostas-sociais?lares-e-residencias-autonomas">
               Lares e Residências Autónomas
             </Link>
           </li>
         </ul>
       </li>
       <li className="group relative">
-        <Link href="/atividades" className="cursor-pointer">
+        <Link href="/atividades-e-servicos" className="cursor-pointer">
           Atividades
         </Link>
         <ul className="menu bg-base-100 z-50 mt-2 ml-4 block w-max space-y-1 lg:absolute lg:left-0 lg:!m-1 lg:!mt-7 lg:hidden lg:w-max lg:rounded-md lg:shadow lg:group-hover:block">
           <li>
-            <Link href="/atividades/colonias-de-ferias">
+            <Link href="/atividades-e-servicos?colonias-de-ferias">
               Colónias de Férias
             </Link>
           </li>
           <li>
-            <Link href="/atividades/gabinete-de-psicologia">
+            <Link href="/atividades-e-servicos?gabinete-de-psicologia">
               Gabinete de Psicologia
             </Link>
           </li>
           <li>
-            <Link href="/atividades/salas-snoezelen">Salas Snoezelen</Link>
+            <Link href="/atividades-e-servicos?salas-snoezelen">Salas Snoezelen</Link>
           </li>
           <li>
-            <Link href="/atividades/apoio-ambulatorio">Apoio Ambulatório</Link>
+            <Link href="/atividades-e-servicos?apoio-ambulatorio">Apoio Ambulatório</Link>
           </li>
           <li>
-            <Link href="/atividades/grupo-de-teatro">Grupo de Teatro</Link>
+            <Link href="/atividades-e-servicos?grupo-de-teatro">Grupo de Teatro</Link>
           </li>
           <li>
-            <Link href="/atividades/cozinha-para-todos">
+            <Link href="/atividades-e-servicos?cozinha-para-todos">
               Cozinha para Todos
             </Link>
           </li>
           <li>
-            <Link href="/atividades/oficina-das-artes">Oficina das Artes</Link>
+            <Link href="/atividades-e-servicos?oficina-das-artes">Oficina das Artes</Link>
           </li>
           <li>
-            <Link href="/atividades/asas-arte-sem-amarras">
+            <Link href="/atividades-e-servicos?asas-arte-sem-amarras">
               ASAS - Arte Sem Amarras
             </Link>
           </li>
@@ -114,7 +114,7 @@ const NavbarMenu: React.FC = () => {
         {/* Updated dropdown with absolute positioning and proper visibility */}
         <ul className="menu bg-base-100 z-50 mt-2 ml-4 block space-y-1 lg:absolute lg:left-0 lg:!m-1 lg:!mt-7 lg:hidden lg:w-max lg:rounded-md lg:shadow lg:group-hover:block">
           <li>
-            <Link href="/eventos">Eventos</Link>
+            <Link href="/noticias?eventos">Eventos</Link>
           </li>
         </ul>
       </li>

@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "atividades_e_servicos",
+  "info": {
+    "singularName": "atividade-e-servico",
+    "pluralName": "atividades-e-servicos",
+    "displayName": "Atividades e Serviços",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Content": {
+      "displayName": "Accordion",
+      "type": "component",
+      "repeatable": true,
+      "component": "ui-components.accordion"
+    },
+    "media": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": false
+    }
+  }
+}

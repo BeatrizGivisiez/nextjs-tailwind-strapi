@@ -12,6 +12,7 @@ type HeroProps = {
 
 export const Hero = ({ imagemHero }: HeroProps) => {
   const imageUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}${imagemHero}`;
+
   return (
     <div
       className="flex min-h-[100vh] flex-col justify-center bg-cover bg-center"
@@ -36,12 +37,14 @@ export const Hero = ({ imagemHero }: HeroProps) => {
               label="Apoie Agora"
               icon={<HandCoins size={32} />}
               size="xl"
+              path={"apoiar"}
             />
             <CustomButton
               variant="outline"
               color="secondary"
               label="Saber Mais"
               size="xl"
+              path={"apoiar"}
             />
           </div>
 

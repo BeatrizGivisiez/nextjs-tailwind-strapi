@@ -369,6 +369,37 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAtividadeEServicoAtividadeEServico
+  extends Struct.SingleTypeSchema {
+  collectionName: 'atividades_e_servicos';
+  info: {
+    description: '';
+    displayName: 'Atividades e Servi\u00E7os';
+    pluralName: 'atividades-e-servicos';
+    singularName: 'atividade-e-servico';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.Component<'ui-components.accordion', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::atividade-e-servico.atividade-e-servico'
+    > &
+      Schema.Attribute.Private;
+    media: Schema.Attribute.Media<'images', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiLocationLocation extends Struct.CollectionTypeSchema {
   collectionName: 'locations';
   info: {
@@ -480,6 +511,35 @@ export interface ApiPaginaPrincipalPaginaPrincipal
   };
 }
 
+export interface ApiParceriaParceria extends Struct.SingleTypeSchema {
+  collectionName: 'parcerias';
+  info: {
+    displayName: 'Parcerias';
+    pluralName: 'parcerias';
+    singularName: 'parceria';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.RichText & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::parceria.parceria'
+    > &
+      Schema.Attribute.Private;
+    media: Schema.Attribute.Media<'images', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProjetoProjeto extends Struct.CollectionTypeSchema {
   collectionName: 'projetos';
   info: {
@@ -507,6 +567,37 @@ export interface ApiProjetoProjeto extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'Titulo'> & Schema.Attribute.Required;
     Titulo: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRespostaSocialRespostaSocial
+  extends Struct.SingleTypeSchema {
+  collectionName: 'respostas_sociais';
+  info: {
+    description: '';
+    displayName: 'Respostas Sociais';
+    pluralName: 'respostas-sociais';
+    singularName: 'resposta-social';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Content: Schema.Attribute.Component<'ui-components.accordion', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::resposta-social.resposta-social'
+    > &
+      Schema.Attribute.Private;
+    media: Schema.Attribute.Media<'images', true>;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1083,10 +1174,13 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::atividade-e-servico.atividade-e-servico': ApiAtividadeEServicoAtividadeEServico;
       'api::location.location': ApiLocationLocation;
       'api::new.new': ApiNewNew;
       'api::pagina-principal.pagina-principal': ApiPaginaPrincipalPaginaPrincipal;
+      'api::parceria.parceria': ApiParceriaParceria;
       'api::projeto.projeto': ApiProjetoProjeto;
+      'api::resposta-social.resposta-social': ApiRespostaSocialRespostaSocial;
       'api::testemunho.testemunho': ApiTestemunhoTestemunho;
       'api::youtube-video-url.youtube-video-url': ApiYoutubeVideoUrlYoutubeVideoUrl;
       'plugin::content-releases.release': PluginContentReleasesRelease;

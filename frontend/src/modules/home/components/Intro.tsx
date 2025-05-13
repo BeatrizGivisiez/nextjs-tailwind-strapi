@@ -54,7 +54,7 @@ export const Intro = ({
     <div className="min-h-screen">
       <section className="custom-container h-full py-24">
         {/* Top Section */}
-        <div className="grid grid-cols-12">
+        <div className="grid grid-cols-12 gap-6">
           <div className="col-span-full md:col-span-7">
             <p className="body-2xl">
               <span className="heading-8xl font-header text-primary font-extrabold uppercase">
@@ -79,7 +79,7 @@ export const Intro = ({
         </div>
 
         {/* Onde Estamos Section */}
-        <div className="mt-16 grid grid-cols-12">
+        <div className="mt-16 grid grid-cols-12 gap-6">
           <div className="col-span-full md:order-2 md:col-span-7">
             <h3 className="text-primary heading-6xl font-extrabold md:text-right">
               ONDE ESTAMOS

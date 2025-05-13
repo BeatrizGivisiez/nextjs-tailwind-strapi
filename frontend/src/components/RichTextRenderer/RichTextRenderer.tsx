@@ -9,16 +9,16 @@ interface RichTextRendererProps {
 const RichTextRenderer: React.FC<RichTextRendererProps> = ({ content }) => {
   const renderers = {
     h1: (props: any) => (
-      <h1 className="heading-4xl font-extrabold" {...props} />
+      <h1 className="heading-4xl font-extrabold inline" {...props} />
     ),
-    h2: (props: any) => <h2 className="heading-3xl font-bold" {...props} />,
-    h3: (props: any) => <h3 className="heading-2xl font-semibold" {...props} />,
-    h4: (props: any) => <h4 className="heading-xl font-medium " {...props} />,
+    h2: (props: any) => <h2 className="heading-3xl font-bold inline" {...props} />,
+    h3: (props: any) => <h3 className="heading-2xl font-semibold inline" {...props} />,
+    h4: (props: any) => <h4 className="heading-xl font-medium inline" {...props} />,
     img: (props: any) => (
       <img className="shadow-sm aspect-[5/2] object-cover h-full" {...props} />
     ),
     p: (props: any) => (
-      <p className="lineHeight-2rem text-justify" {...props} />
+      <p className="lineHeight-2rem text-justify inline" {...props} />
     ),
     a: (props: any) => <a className="link link-primary" {...props} />,
     pre: ({ children, className }: any) => {

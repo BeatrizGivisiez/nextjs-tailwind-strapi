@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "respostas_sociais",
+  "info": {
+    "singularName": "resposta-social",
+    "pluralName": "respostas-sociais",
+    "displayName": "Respostas Sociais",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Content": {
+      "type": "component",
+      "repeatable": true,
+      "component": "ui-components.accordion"
+    },
+    "media": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}
