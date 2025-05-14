@@ -12,10 +12,36 @@ export interface UiComponentsAccordion extends Struct.ComponentSchema {
   };
 }
 
+export interface UiComponentsTextFile extends Struct.ComponentSchema {
+  collectionName: 'components_ui_components_text_files';
+  info: {
+    displayName: 'Text File';
+    icon: 'attachment';
+  };
+  attributes: {
+    content: Schema.Attribute.RichText;
+    file: Schema.Attribute.Media<'files'>;
+  };
+}
+
+export interface UiComponentsTextImage extends Struct.ComponentSchema {
+  collectionName: 'components_ui_components_text_images';
+  info: {
+    displayName: 'Text Image';
+    icon: 'picture';
+  };
+  attributes: {
+    content: Schema.Attribute.Text;
+    media: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'ui-components.accordion': UiComponentsAccordion;
+      'ui-components.text-file': UiComponentsTextFile;
+      'ui-components.text-image': UiComponentsTextImage;
     }
   }
 }

@@ -44,9 +44,11 @@ export const HomePage = () => {
       <Hero imagemHero={landingPageData.ImagemHero?.url} />
       <Intro
         cedemaAbout={landingPageData.CedemaAbout}
+        aboutMedia={landingPageData.AboutMedia}
         googleMaps={landingPageData.GoogleMaps}
         ondeEstamos={landingPageData.OndeEstamos}
         youtube_video_urls={landingPageData.youtube_video_urls}
+        mensagemPresidente={landingPageData.presidentmensagem}
       />
       <DestaquesNoticias news={newsData?.news_connection.nodes} />
       <BotoesInfo />

@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_ui_components_text_files",
+  "info": {
+    "displayName": "Text File",
+    "icon": "attachment"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "richtext"
+    },
+    "file": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

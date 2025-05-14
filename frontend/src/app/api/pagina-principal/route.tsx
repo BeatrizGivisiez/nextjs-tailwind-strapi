@@ -33,29 +33,44 @@ interface PaginaPrincipalQueryResponse {
 }
 
 const PAGINAPRINCIPAL_QUERY = gql`
-  query GetPaginaPrincipal {
-    paginaPrincipal {
-      ImagemHero {
+ query GetPaginaPrincipal {
+  paginaPrincipal {
+    ImagemHero {
+      url
+      alternativeText
+      caption
+    }
+    CedemaAbout
+    AboutMedia: AboutMedia_connection {
+      media: nodes {
         url
         alternativeText
         caption
       }
-      CedemaAbout
-      OndeEstamos
-      youtube_video_urls {
-        Title
-        YoutubeUrl
-        Thumbnail {
-          url
-        }
-      }
-      testemunhos {
-        Nome
-        Testemunho
-      }
-      GoogleMaps
     }
+    OndeEstamos
+    youtube_video_urls {
+      Title
+      YoutubeUrl
+      Thumbnail {
+        url
+      }
+    }
+    testemunhos {
+      Nome
+      Testemunho
+    }
+    presidentmensagem {
+      content
+      media {
+        url
+        alternativeText
+        caption
+      }
+    }
+    GoogleMaps
   }
+}
 `;
 
 export async function GET() {

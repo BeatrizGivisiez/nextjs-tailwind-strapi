@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_ui_components_text_images",
+  "info": {
+    "displayName": "Text Image",
+    "icon": "picture"
+  },
+  "options": {},
+  "attributes": {
+    "media": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "content": {
+      "type": "text"
+    }
+  }
+}

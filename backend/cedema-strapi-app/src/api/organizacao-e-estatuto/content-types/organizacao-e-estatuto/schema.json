@@ -1,0 +1,49 @@
+{
+  "kind": "singleType",
+  "collectionName": "organizacao_e_estatutos",
+  "info": {
+    "singularName": "organizacao-e-estatuto",
+    "pluralName": "organizacao-e-estatutos",
+    "displayName": "Organização e Estatutos"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "contasExercicios": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    },
+    "publicacoesEditadas": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    },
+    "codigoEticaConduta": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "orgaosSociais": {
+      "displayName": "Text File",
+      "type": "component",
+      "repeatable": false,
+      "component": "ui-components.text-file"
+    },
+    "estatutos": {
+      "type": "component",
+      "repeatable": false,
+      "component": "ui-components.text-file"
+    }
+  }
+}

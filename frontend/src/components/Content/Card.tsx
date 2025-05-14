@@ -1,11 +1,25 @@
 import { formatDateInPortuguese } from "@/utils/dateHelpers";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 
 interface Props {
   item: any;
   viewMode?: string;
 }
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+      delay: i * 0.1,
+    },
+  }),
+};
 
 export const ContentItemListCard: React.FC<Props> = ({ item, viewMode }) => {
   const router = useRouter();
@@ -17,8 +31,12 @@ export const ContentItemListCard: React.FC<Props> = ({ item, viewMode }) => {
   };
 
   return (
-    <div
+    <motion.div
       className={`card ${viewMode === "list" ? "flex flex-row" : ""} bg-base-100 w-full shadow-sm h-full`}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={cardVariants}
     >
       <figure>
         <Image
@@ -49,6 +67,6 @@ export const ContentItemListCard: React.FC<Props> = ({ item, viewMode }) => {
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

@@ -7,6 +7,8 @@
 @import "@fontsource/poppins/500.css";
 @import "@fontsource/poppins/800.css";
 @import "tailwindcss";
+@import "swiper/css";
+@import "swiper/css/pagination";
 
 @plugin "daisyui";
 @plugin "daisyui/theme" {
@@ -107,6 +109,10 @@ h6 {
   @apply text-base md:text-2xl;
 }
 
+.body-xl {
+  @apply text-sm md:text-xl;
+}
+
 .lineHeight-2rem {
   @apply leading-6 md:leading-8;
 }
@@ -118,4 +124,12 @@ button {
 
 .clip-hero {
   clip-path: ellipse(75% 88% at 57% 12%);
+}
+
+.swiper-slide {
+  height: auto;
+
+  .card-body {
+    justify-content: space-between;
+  }
 }

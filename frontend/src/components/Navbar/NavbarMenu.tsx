@@ -25,11 +25,11 @@ const NavbarMenu: React.FC = () => {
           Quem Somos
         </Link>
         <ul className="menu bg-base-100 z-50 mt-2 ml-4 block w-max space-y-1 lg:absolute lg:left-0 lg:!m-1 lg:!mt-7 lg:hidden lg:w-max lg:rounded-md lg:shadow lg:group-hover:block">
-          <li>
+          {/* <li>
             <Link href="/quem-somos/mensagem-da-presidente">
               Mensagem da Presidente
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link href="/quem-somos/historia">História</Link>
           </li>

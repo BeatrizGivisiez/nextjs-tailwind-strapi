@@ -40,6 +40,20 @@
     },
     "GoogleMaps": {
       "type": "text"
+    },
+    "AboutMedia": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    },
+    "presidentmensagem": {
+      "displayName": "Text Image",
+      "type": "component",
+      "repeatable": false,
+      "component": "ui-components.text-image"
     }
   }
 }

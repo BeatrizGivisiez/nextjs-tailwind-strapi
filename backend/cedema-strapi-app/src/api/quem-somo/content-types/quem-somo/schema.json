@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "quem_somos",
+  "info": {
+    "singularName": "quem-somo",
+    "pluralName": "quem-somos",
+    "displayName": "Quem Somos"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "quemSomos": {
+      "type": "richtext",
+      "required": true
+    },
+    "videoApresentacao": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::youtube-video-url.youtube-video-url"
+    },
+    "historia": {
+      "type": "richtext",
+      "required": true
+    },
+    "missaoValores": {
+      "type": "richtext"
+    }
+  }
+}

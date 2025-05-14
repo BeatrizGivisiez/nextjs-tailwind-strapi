@@ -468,6 +468,42 @@ export interface ApiNewNew extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiOrganizacaoEEstatutoOrganizacaoEEstatuto
+  extends Struct.SingleTypeSchema {
+  collectionName: 'organizacao_e_estatutos';
+  info: {
+    displayName: 'Organiza\u00E7\u00E3o e Estatutos';
+    pluralName: 'organizacao-e-estatutos';
+    singularName: 'organizacao-e-estatuto';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    codigoEticaConduta: Schema.Attribute.Media<'files'> &
+      Schema.Attribute.Required;
+    contasExercicios: Schema.Attribute.Media<'files', true> &
+      Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    estatutos: Schema.Attribute.Component<'ui-components.text-file', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::organizacao-e-estatuto.organizacao-e-estatuto'
+    > &
+      Schema.Attribute.Private;
+    orgaosSociais: Schema.Attribute.Component<'ui-components.text-file', false>;
+    publicacoesEditadas: Schema.Attribute.Media<'files', true> &
+      Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPaginaPrincipalPaginaPrincipal
   extends Struct.SingleTypeSchema {
   collectionName: 'pagina_principals';
@@ -481,6 +517,8 @@ export interface ApiPaginaPrincipalPaginaPrincipal
     draftAndPublish: true;
   };
   attributes: {
+    AboutMedia: Schema.Attribute.Media<'images', true> &
+      Schema.Attribute.Required;
     CedemaAbout: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -496,6 +534,10 @@ export interface ApiPaginaPrincipalPaginaPrincipal
     > &
       Schema.Attribute.Private;
     OndeEstamos: Schema.Attribute.Text;
+    presidentmensagem: Schema.Attribute.Component<
+      'ui-components.text-image',
+      false
+    >;
     publishedAt: Schema.Attribute.DateTime;
     testemunhos: Schema.Attribute.Relation<
       'oneToMany',
@@ -570,6 +612,40 @@ export interface ApiProjetoProjeto extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiQuemSomoQuemSomo extends Struct.SingleTypeSchema {
+  collectionName: 'quem_somos';
+  info: {
+    displayName: 'Quem Somos';
+    pluralName: 'quem-somos';
+    singularName: 'quem-somo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    historia: Schema.Attribute.RichText & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::quem-somo.quem-somo'
+    > &
+      Schema.Attribute.Private;
+    missaoValores: Schema.Attribute.RichText;
+    publishedAt: Schema.Attribute.DateTime;
+    quemSomos: Schema.Attribute.RichText & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    videoApresentacao: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::youtube-video-url.youtube-video-url'
+    >;
   };
 }
 
@@ -1177,9 +1253,11 @@ declare module '@strapi/strapi' {
       'api::atividade-e-servico.atividade-e-servico': ApiAtividadeEServicoAtividadeEServico;
       'api::location.location': ApiLocationLocation;
       'api::new.new': ApiNewNew;
+      'api::organizacao-e-estatuto.organizacao-e-estatuto': ApiOrganizacaoEEstatutoOrganizacaoEEstatuto;
       'api::pagina-principal.pagina-principal': ApiPaginaPrincipalPaginaPrincipal;
       'api::parceria.parceria': ApiParceriaParceria;
       'api::projeto.projeto': ApiProjetoProjeto;
+      'api::quem-somo.quem-somo': ApiQuemSomoQuemSomo;
       'api::resposta-social.resposta-social': ApiRespostaSocialRespostaSocial;
       'api::testemunho.testemunho': ApiTestemunhoTestemunho;
       'api::youtube-video-url.youtube-video-url': ApiYoutubeVideoUrlYoutubeVideoUrl;

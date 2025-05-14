@@ -19,17 +19,26 @@ export interface PaginaPrincipal {
   youtube_video_urls: YoutubeVideo[];
   testemunhos: Testemunho[];
   GoogleMaps: string;
+  AboutMedia: {
+    media: {
+      url: string, alternativeText: string, caption: string
+    }[]
+  }
+  presidentmensagem: {
+    content: string,
+    media: { url: string, alternativeText: string, caption: string }
+  }
 }
 
 const fetchPaginaPrincipal = async (): Promise<PaginaPrincipal> => {
-  const res = await fetch("/api/paginaPrincipal");
+  const res = await fetch("/api/pagina-principal");
   if (!res.ok) throw new Error("Failed to fetch pagina principal");
   return res.json(); // returns an object, not an array
 };
 
 export const usePaginaPrincipal = () => {
   return useQuery<PaginaPrincipal, Error>({
-    queryKey: ["paginaPrincipal"],
+    queryKey: ["Pagina Principal"],
     queryFn: fetchPaginaPrincipal,
     staleTime: 1000 * 60 * 5,
   });

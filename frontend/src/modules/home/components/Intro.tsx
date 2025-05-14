@@ -9,12 +9,22 @@ import CustomButton from "@/components/Buttons/CustomButton";
 import { YoutubeVideo } from "@/hooks/PaginaPrincipal/usePaginaPrincipal";
 import ContentItemListCarousel from "@/components/Carousel/ContentItemListCarousel";
 import { YoutubeVideoCard } from "./YoutubeVideoCard";
+import ImageCarousel from "@/components/Carousel/ImageCarousel";
 
 type IntroProps = {
   cedemaAbout: string;
   ondeEstamos: string;
   youtube_video_urls: YoutubeVideo[];
   googleMaps: string;
+  mensagemPresidente: {
+    content: string,
+    media: { url: string, alternativeText: string, caption: string }
+  }
+  aboutMedia: {
+    media: {
+      url: string, alternativeText: string, caption: string
+    }[]
+  }
 };
 
 export const Intro = ({
@@ -22,6 +32,8 @@ export const Intro = ({
   ondeEstamos,
   youtube_video_urls,
   googleMaps,
+  mensagemPresidente,
+  aboutMedia
 }: IntroProps) => {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
@@ -56,7 +68,7 @@ export const Intro = ({
         {/* Top Section */}
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-full md:col-span-7">
-            <p className="body-2xl">
+            <p className="body-xl">
               <span className="heading-8xl font-header text-primary font-extrabold uppercase">
                 CEDEMA
               </span>
@@ -64,16 +76,11 @@ export const Intro = ({
             </p>
           </div>
           <div className="col-span-full md:col-span-5">
-            <div className="mt-3 grid grid-cols-2 gap-3 md:mt-0 md:grid-cols-2">
-              {[1, 2, 3, 4].map((_, index) => (
-                <Image
-                  key={index}
-                  src={image1}
-                  alt="Image"
-                  className="h-64 cursor-pointer rounded-lg object-cover lg:h-auto"
-                  onClick={() => handleVideoClick("YOUR_YOUTUBE_URL")}
-                />
-              ))}
+            <div className="mt-3">
+              <ImageCarousel
+                aspectRatio="4/3"
+                images={aboutMedia.media}
+              />
             </div>
           </div>
         </div>
@@ -84,7 +91,7 @@ export const Intro = ({
             <h3 className="text-primary heading-6xl font-extrabold md:text-right">
               ONDE ESTAMOS
             </h3>
-            <p className="body-2xl m-2 md:text-right">
+            <p className="body-xl m-2 md:text-right">
               <span className="text-neutral">{ondeEstamos}</span>
             </p>
           </div>
