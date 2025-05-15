@@ -31,10 +31,10 @@ const NavbarMenu: React.FC = () => {
             </Link>
           </li> */}
           <li>
-            <Link href="/quem-somos/historia">História</Link>
+            <Link href="/quem-somos#historia">História</Link>
           </li>
           <li>
-            <Link href="/quem-somos/missao-valores">Missão e Valores</Link>
+            <Link href="/quem-somos#missao-valores">Missão e Valores</Link>
           </li>
           <li>
             <Link href="/quem-somos/organizacao-estatutos">
@@ -43,6 +43,8 @@ const NavbarMenu: React.FC = () => {
           </li>
           <li>
             <Link href="/quem-somos/financiamento">Financiamento</Link>
+          </li>  <li>
+            <Link href="/quem-somos/canal-de-denuncias">Canal de Denúncias</Link>
           </li>
         </ul>
       </li>

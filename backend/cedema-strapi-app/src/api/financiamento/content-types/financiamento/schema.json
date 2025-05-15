@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "financiamentos",
+  "info": {
+    "singularName": "financiamento",
+    "pluralName": "financiamentos",
+    "displayName": "Financiamento"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "content": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

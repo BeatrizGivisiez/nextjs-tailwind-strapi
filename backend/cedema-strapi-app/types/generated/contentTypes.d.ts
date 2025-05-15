@@ -400,6 +400,65 @@ export interface ApiAtividadeEServicoAtividadeEServico
   };
 }
 
+export interface ApiCanalDeDenunciaCanalDeDenuncia
+  extends Struct.SingleTypeSchema {
+  collectionName: 'canal_de_denuncias';
+  info: {
+    displayName: 'Canal de Den\u00FAncias';
+    pluralName: 'canal-de-denuncias';
+    singularName: 'canal-de-denuncia';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.RichText & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    link: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::canal-de-denuncia.canal-de-denuncia'
+    > &
+      Schema.Attribute.Private;
+    media: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFinanciamentoFinanciamento extends Struct.SingleTypeSchema {
+  collectionName: 'financiamentos';
+  info: {
+    displayName: 'Financiamento';
+    pluralName: 'financiamentos';
+    singularName: 'financiamento';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.RichText & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::financiamento.financiamento'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiLocationLocation extends Struct.CollectionTypeSchema {
   collectionName: 'locations';
   info: {
@@ -1251,6 +1310,8 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::atividade-e-servico.atividade-e-servico': ApiAtividadeEServicoAtividadeEServico;
+      'api::canal-de-denuncia.canal-de-denuncia': ApiCanalDeDenunciaCanalDeDenuncia;
+      'api::financiamento.financiamento': ApiFinanciamentoFinanciamento;
       'api::location.location': ApiLocationLocation;
       'api::new.new': ApiNewNew;
       'api::organizacao-e-estatuto.organizacao-e-estatuto': ApiOrganizacaoEEstatutoOrganizacaoEEstatuto;

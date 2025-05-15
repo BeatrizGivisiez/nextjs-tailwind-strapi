@@ -21,7 +21,7 @@ export default function AnimatedNavbar() {
 
   return (
     <motion.div
-      className={`${isHeroPage ? "fixed" : ""} z-[20] ${isAtTopLandingPage ? "mt-[5vh]" : ""} navbar overflow-show min-h-[50px] items-start justify-between bg-white p-0 px-6 pb-0 shadow-lg lg:items-center lg:px-10`}
+      className={`${isHeroPage ? "fixed shadow-lg" : ""} z-[20] ${isAtTopLandingPage ? "mt-[5vh]" : ""} navbar overflow-show min-h-[50px] items-start justify-between bg-white p-0 px-6 pb-0 lg:items-center lg:px-10`}
       animate={{
         width: isAtTopLandingPage ? "70%" : "100%",
         opacity: 1,
