@@ -7,9 +7,10 @@ import { Pagination } from "swiper/modules";
 interface Props<T> {
   items: T[];
   renderItem: (item: T, index: number) => React.ReactNode;
+  margin?: boolean
 }
 
-function ContentItemListCarousel<T>({ items, renderItem }: Props<T>) {
+function ContentItemListCarousel<T>({ items, renderItem, margin = true }: Props<T>) {
   return (
     <div className="relative">
       <Swiper
@@ -17,7 +18,7 @@ function ContentItemListCarousel<T>({ items, renderItem }: Props<T>) {
         spaceBetween={15}
         pagination={{ clickable: true }}
         modules={[Pagination]}
-        className="mySwiper mt-10 pb-16"
+        className={`mySwiper ${margin ? " mt-10 " : ""} pb-16`}
         breakpoints={{
           0: {
             slidesPerView: 2,

@@ -16,7 +16,7 @@ export const ContactInfo: React.FC<ContactInfoProps> = ({ locations }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-sm text-gray-800">
         {locations.map((loc, idx) => (
           <div key={idx} className="space-y-2">
-            <div className="flex items-start gap-2 text-primary heading-lg uppercase leading-snug">
+            <div className="flex items-center gap-2 text-primary heading-lg uppercase leading-snug">
               <Buildings
                 size={16}
                 weight="bold"
@@ -25,21 +25,21 @@ export const ContactInfo: React.FC<ContactInfoProps> = ({ locations }) => {
               <span>{loc.Title}</span>
             </div>
             <p className="whitespace-pre-line">{loc.Address}</p>
-            <p className="flex items-start gap-2">
+            <p className="flex items-center gap-2">
               <Phone
                 size={14}
                 weight="regular"
                 className="text-gray-600 mt-[2px] shrink-0"
               />
-              <span className="leading-snug">{loc.Phone}</span>
+              <a className="leading-snug" href={`tel:${loc.Phone}`}>{loc.Phone}</a>
             </p>
-            <p className="flex items-start gap-2 break-all">
+            <p className="flex items-center gap-2 break-all">
               <EnvelopeSimple
                 size={14}
                 weight="regular"
                 className="text-gray-600 mt-[2px] shrink-0"
               />
-              <span className="leading-snug">{loc.Email}</span>
+              <a className="leading-snug" href={`mailto:${loc.Email}`}>{loc.Email}</a>
             </p>
           </div>
         ))}

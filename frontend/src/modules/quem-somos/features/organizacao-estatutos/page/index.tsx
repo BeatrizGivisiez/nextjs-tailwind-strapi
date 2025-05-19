@@ -45,42 +45,51 @@ export const OrganizacaoEstatutosPage = () => {
         <div className="my-2">
           <h2 className="font-semibold heading-xl text-primary">Contas dos Exercícios</h2>
           {OrganizacaoEstatutos?.organizacaoEEstatuto?.contasExercicios?.files && (
-            <ContentItemListCarousel
-              items={OrganizacaoEstatutos?.organizacaoEEstatuto?.contasExercicios?.files}
-              renderItem={(file, i) => (
-                <CustomButton
-                  className="justify-start"
-                  path={`${process.env.NEXT_PUBLIC_STRAPI_URL}${file.url}` || ""}
-                  icon={<FilePdf size={32} weight="duotone" />}
-                  variant="ghost"
-                  label={file.caption || ""}
-                />
-              )}
-            />)
+            <div className="mt-2">
+              <ContentItemListCarousel
+                items={OrganizacaoEstatutos?.organizacaoEEstatuto?.contasExercicios?.files}
+                renderItem={(file, i) => (
+                  <CustomButton
+                    className="justify-start"
+                    path={`${process.env.NEXT_PUBLIC_STRAPI_URL}${file.url}` || ""}
+                    icon={<FilePdf size={32} weight="duotone" />}
+                    variant="ghost"
+                    label={file.caption || ""}
+                  />
+                )}
+                margin={false}
+              />
+            </div>
+          )
           }
         </div>
 
         <div className="my-2">
           <h2 className="font-semibold heading-xl text-primary">Publicações editadas</h2>
+          <p className="mt-2">Notícias da CEDEMA</p>
           {OrganizacaoEstatutos?.organizacaoEEstatuto?.publicacoesEditadas?.files && (
-            <ContentItemListCarousel
-              items={OrganizacaoEstatutos?.organizacaoEEstatuto?.publicacoesEditadas?.files}
-              renderItem={(file, i) => (
-                <CustomButton
-                  className="justify-start"
-                  path={`${process.env.NEXT_PUBLIC_STRAPI_URL}${file.url}` || ""}
-                  icon={<FilePdf size={32} weight="duotone" />}
-                  variant="ghost"
-                  label={file.caption || ""}
-                />
-              )}
-            />)
+            <div className="mt-2">
+              <ContentItemListCarousel
+                items={OrganizacaoEstatutos?.organizacaoEEstatuto?.publicacoesEditadas?.files}
+                renderItem={(file, i) => (
+                  <CustomButton
+                    className="justify-start"
+                    path={`${process.env.NEXT_PUBLIC_STRAPI_URL}${file.url}` || ""}
+                    icon={<FilePdf size={32} weight="duotone" />}
+                    variant="ghost"
+                    label={file.caption || ""}
+                  />
+                )}
+                margin={false}
+              />
+            </div>
+          )
           }
         </div>
         <div className="my-2">
           <h2 className="font-semibold heading-xl text-primary">Código de ética e conduta</h2>
           <CustomButton
-            className="lg:w-1/3 justify-start mt-2"
+            className="lg:w-2/5 justify-start mt-2"
             path={`${process.env.NEXT_PUBLIC_STRAPI_URL}${OrganizacaoEstatutos?.organizacaoEEstatuto.codigoEticaConduta.url}` || ""}
             icon={<FilePdf size={32} weight="duotone" />}
             variant="ghost"

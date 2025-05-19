@@ -63,7 +63,7 @@ export const Intro = ({
   }, [selectedVideo]);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" id="CedemaIntro">
       <section className="custom-container h-full py-24">
         {/* Top Section */}
         <div className="grid grid-cols-12 gap-6">

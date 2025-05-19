@@ -12,10 +12,10 @@ export const YoutubeVideoCard: React.FC<Props> = ({ video, onClick }) => {
   return (
     <div
       className="h-[200px] w-[300px] cursor-pointer pr-4"
-      onClick={() => onClick(video.YoutubeUrl)}
+      onClick={() => onClick(video?.YoutubeUrl)}
     >
       <Image
-        src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${video.Thumbnail.url}`}
+        src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${video?.Thumbnail?.url}`}
         alt={`Thumbnail for ${video.Title}`}
         className="rounded-lg object-cover"
         fill

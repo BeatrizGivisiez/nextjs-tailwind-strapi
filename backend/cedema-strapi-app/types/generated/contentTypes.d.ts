@@ -459,6 +459,33 @@ export interface ApiFinanciamentoFinanciamento extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiLeiLei extends Struct.SingleTypeSchema {
+  collectionName: 'leis';
+  info: {
+    displayName: 'Leis';
+    pluralName: 'leis';
+    singularName: 'lei';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.RichText & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    leisDocument: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::lei.lei'> &
+      Schema.Attribute.Private;
+    manualApoio: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiLocationLocation extends Struct.CollectionTypeSchema {
   collectionName: 'locations';
   info: {
@@ -791,7 +818,7 @@ export interface ApiYoutubeVideoUrlYoutubeVideoUrl
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Thumbnail: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Thumbnail: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1312,6 +1339,7 @@ declare module '@strapi/strapi' {
       'api::atividade-e-servico.atividade-e-servico': ApiAtividadeEServicoAtividadeEServico;
       'api::canal-de-denuncia.canal-de-denuncia': ApiCanalDeDenunciaCanalDeDenuncia;
       'api::financiamento.financiamento': ApiFinanciamentoFinanciamento;
+      'api::lei.lei': ApiLeiLei;
       'api::location.location': ApiLocationLocation;
       'api::new.new': ApiNewNew;
       'api::organizacao-e-estatuto.organizacao-e-estatuto': ApiOrganizacaoEEstatutoOrganizacaoEEstatuto;

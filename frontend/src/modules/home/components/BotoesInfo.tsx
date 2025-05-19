@@ -32,7 +32,8 @@ export const BotoesInfo = () => {
               hover: { opacity: 1, y: 0 },
             }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="absolute bottom-4 z-10 rounded bg-white px-4 py-2 text-sm font-semibold text-black shadow"
+            className="cursor-pointer absolute bottom-4 z-10 rounded bg-white px-4 py-2 text-sm font-semibold text-black shadow"
+            onClick={() => router.push("/parcerias")}
           >
             SABER MAIS
           </motion.button>
@@ -93,7 +94,8 @@ export const BotoesInfo = () => {
               hover: { opacity: 1, y: 0 },
             }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="absolute bottom-4 z-10 rounded bg-white px-4 py-2 text-sm font-semibold text-black shadow"
+            className="cursor-pointer absolute bottom-4 z-10 rounded bg-white px-4 py-2 text-sm font-semibold text-black shadow"
+            onClick={() => router.push("/leis")}
           >
             SABER MAIS
           </motion.button>

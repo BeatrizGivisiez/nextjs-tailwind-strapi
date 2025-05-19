@@ -1,0 +1,34 @@
+{
+  "kind": "singleType",
+  "collectionName": "leis",
+  "info": {
+    "singularName": "lei",
+    "pluralName": "leis",
+    "displayName": "Leis"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "content": {
+      "type": "richtext",
+      "required": true
+    },
+    "leisDocument": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "manualApoio": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

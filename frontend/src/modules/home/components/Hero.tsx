@@ -5,6 +5,7 @@ import cmOdivelas from "@/assets/cmOdivelas.png";
 import iefp from "@/assets/iefp.png";
 import gnr from "@/assets/gnr.png";
 import { CaretDoubleDown } from "phosphor-react";
+import Link from "next/link";
 
 type HeroProps = {
   imagemHero: string;
@@ -57,14 +58,12 @@ export const Hero = ({ imagemHero }: HeroProps) => {
             </div>
           </div>
 
-          <div className="mt-8 flex items-center justify-center gap-4 md:justify-start">
+          <a href={"#CedemaIntro"} className="mt-8 flex items-center justify-center gap-4 md:justify-start font-header text-sm font-extrabold uppercase md:text-base">
             <CaretDoubleDown weight="bold" size={32} />
-            <p className="font-header text-sm font-extrabold uppercase md:text-base">
-              Continue a Explorar
-            </p>
-          </div>
+            Continue a Explorar
+          </a>
         </div>
-      </section>
-    </div>
+      </section >
+    </div >
   );
 };

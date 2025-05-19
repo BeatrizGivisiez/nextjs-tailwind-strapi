@@ -117,6 +117,10 @@ h6 {
   @apply leading-6 md:leading-8;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 button {
   font-family: "Inter", sans-serif;
   text-transform: uppercase;
